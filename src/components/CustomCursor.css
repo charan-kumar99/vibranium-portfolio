@@ -1,0 +1,79 @@
+/* ============================================================================
+   ASPHALT 9 / CODEX STEALTH DELTA CURSOR (NO TAIL)
+   0ms lag, direct GPU translation, no duplicate OS pointer
+   ============================================================================ */
+
+/* Hide standard OS pointer on all elements so only the custom delta cursor is visible */
+html,
+body,
+*,
+*::before,
+*::after,
+a,
+button,
+input,
+select,
+textarea,
+[role="button"],
+.clickable {
+  cursor: none !important;
+}
+
+.custom-cursor-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  overflow: visible;
+}
+
+.custom-cursor-stealth {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  will-change: transform;
+  transform-origin: 5.16px 5.16px;
+  /* CRITICAL: No transition on transform to avoid any frame lag or trailing duplicate */
+  transition: opacity 0.15s ease, filter 0.2s ease;
+  filter: drop-shadow(0 0 3px rgba(168, 85, 247, 0.75)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.85));
+}
+
+.stealth-delta-svg {
+  display: block;
+  transform-origin: 5.16px 5.16px;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-cursor-stealth.cursor-hover {
+  filter: drop-shadow(0 0 5px rgba(232, 121, 249, 0.85)) drop-shadow(0 0 8px rgba(168, 85, 247, 0.5)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.85));
+}
+
+.cursor-hover .stealth-delta-svg {
+  transform: scale(1.1);
+}
+
+.cursor-active .stealth-delta-svg {
+  transform: scale(0.92);
+}
+
+/* Pure touch-only mobile devices (phones/tablets without any mouse pointer) */
+@media (hover: none) and (pointer: coarse) {
+  html,
+  body,
+  *,
+  *::before,
+  *::after,
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  [role="button"] {
+    cursor: auto !important;
+  }
+
+  .custom-cursor-root {
+    display: none !important;
+  }
+}

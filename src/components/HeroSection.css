@@ -1,0 +1,900 @@
+/* ============================================================================
+   HERO — CRIMSON MOON
+   Faithful match to the reference homepage: left content column over the
+   Black Panther artwork on the right.
+   ============================================================================ */
+
+.hero-stage {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: clamp(6.75rem, 12vh, 8.25rem) 0 clamp(3rem, 6vh, 4.5rem);
+  background: #08060F;
+}
+
+/* ─── BACKGROUND ARTWORK ─────────────────────────────────────────────────── */
+.hero-backdrop-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-backdrop-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right 50%;
+  display: block;
+  /* Preserve original background image colors exactly as they are */
+  filter: none !important;
+}
+
+/* Subtle left-side shadow only behind typography so text is crisp without altering right artwork.
+   The second layer fades the artwork into #030305 at the hero's bottom edge — the exact colour
+   the dossier section opens on — so the two sections meet as a continuous gradient instead of
+   a hard magenta-to-black cut. */
+.hero-backdrop-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 76%,
+      rgba(3, 3, 5, 0.22) 82%,
+      rgba(3, 3, 5, 0.62) 90%,
+      rgba(3, 3, 5, 0.92) 96%,
+      #030305 100%
+    ),
+    linear-gradient(
+      90deg,
+      #08060F 0%,
+      rgba(8, 6, 15, 0.92) 25%,
+      rgba(8, 6, 15, 0.5) 42%,
+      transparent 55%
+    );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Disabled so image colors are never altered or tinted */
+.hero-cosmic-glow {
+  display: none !important;
+}
+
+/* ─── LAYOUT ─────────────────────────────────────────────────────────────── */
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 clamp(1.25rem, 5.62vw, 6rem);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: min(62%, 960px);
+  text-align: left;
+}
+
+/* ─── EYEBROW ────────────────────────────────────────────────────────────── */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: clamp(1.2rem, 2.4vh, 1.8rem);
+  margin-bottom: 0;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: clamp(0.82rem, 0.9vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #C084FC;
+  text-transform: uppercase;
+}
+
+.hero-sparkle {
+  color: #E879F9;
+  font-size: 0.95rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 7px rgba(232, 121, 249, 0.9));
+}
+
+.hero-eyebrow-wakanda {
+  font-family: var(--font-wakanda-panther);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+
+.hero-eyebrow-name {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+/* ─── HEADLINE ───────────────────────────────────────────────────────────── */
+.hero-headline {
+  margin: clamp(0.7rem, 1.5vh, 1rem) 0 0;
+  font-family: 'Manrope', 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(2.15rem, 3.6vw, 4.1rem);
+  font-weight: 800;
+  line-height: 1.13;
+  letter-spacing: -0.006em;
+  color: #FFFFFF;
+}
+
+.hero-headline-line {
+  display: block;
+}
+
+/* The Wakanda script face runs ~15% wider than Manrope 800 at the same size, so
+   the pending line would be drawn wider than its final width and pull itself in
+   as letters lock. Shrinking the script slightly keeps the line's footprint —
+   and therefore the rest of the headline — steady during the decode. */
+.hero-headline .wakanda-glyph {
+  font-size: 0.9em;
+}
+
+.hero-headline-line--gradient {
+  background: linear-gradient(
+    90deg,
+    #9E67FA 0%,
+    #A95CFC 20%,
+    #C55AFD 50%,
+    #DC4AFE 60%,
+    #E338F6 70%,
+    #F631F7 80%,
+    #F321F1 90%,
+    #F829EC 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  /* extend the paint box over descenders (the "g" tail) without shifting layout */
+  padding-bottom: 0.16em;
+  margin-bottom: -0.16em;
+}
+
+/* Round period for ".NET" — glyph hidden, circle drawn on the baseline */
+.hero-headline-period {
+  position: relative;
+  color: transparent;
+}
+
+.hero-headline-period::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0.295em;
+  width: 0.18em;
+  height: 0.18em;
+  margin-left: -0.09em;
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+
+.hero-headline-dot {
+  display: inline-block;
+  width: 0.2em;
+  height: 0.2em;
+  margin-left: 0.07em;
+  border-radius: 50%;
+  background: #F8027A;
+  box-shadow: 0 0 12px rgba(248, 2, 122, 0.6);
+  vertical-align: 0;
+}
+
+/* ─── BIO ────────────────────────────────────────────────────────────────── */
+.hero-bio {
+  margin: clamp(1.2rem, 2.4vh, 1.75rem) 0 0;
+  max-width: clamp(590px, 37.8vw, 700px);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: clamp(0.96rem, 1.02vw, 1.1rem);
+  font-weight: 400;
+  line-height: 1.72;
+  letter-spacing: -0.005em;
+  color: #B4B0C5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.hero-bio strong {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* Purple accent phrases inside the bio ("1+ year") — needs the parent
+   element in the selector to beat .hero-bio strong */
+.hero-bio strong.hero-bio-accent {
+  color: #D8B4FE;
+  font-weight: 600;
+}
+
+.hero-bio-highlight {
+  color: #D8B4FE;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── TECH STACK CHIPS ───────────────────────────────────────────────────── */
+.hero-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: clamp(1.2rem, 2.3vh, 1.7rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  height: 38px;
+  padding: 0 1.15rem;
+  border-radius: 9999px;
+  border: 1.5px solid #A855F7;
+  background: rgba(18, 10, 32, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 
+    0 0 10px rgba(168, 85, 247, 0.6), 
+    0 0 22px rgba(147, 51, 234, 0.35), 
+    inset 0 0 8px rgba(168, 85, 247, 0.15);
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  white-space: nowrap;
+  letter-spacing: -0.005em;
+  transition: all 0.25s ease;
+}
+
+.hero-tech-chip:hover {
+  border-color: #C084FC;
+  background: rgba(35, 16, 60, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 16px rgba(192, 132, 252, 0.8), 
+    0 0 32px rgba(168, 85, 247, 0.5), 
+    inset 0 0 10px rgba(192, 132, 252, 0.25);
+}
+
+.hero-tech-chip--more {
+  color: #D8B4FE;
+  cursor: pointer;
+  padding: 0 1.15rem;
+}
+
+/* Icon-only chip (logo already carries the wordmark) */
+.hero-tech-chip--icon {
+  padding: 0 0.85rem;
+}
+
+.hero-tech-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.18rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.hero-tech-icon i {
+  display: inline-block;
+  font-size: 1.18rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.hero-tech-icon svg {
+  display: block;
+  height: 18px;
+  width: auto;
+  max-width: 26px;
+  object-fit: contain;
+}
+
+/* Official brand colors for Devicon developer icons */
+.hero-tech-icon .devicon-amazonwebservices-plain-wordmark,
+.hero-tech-icon .devicon-amazonwebservices-plain-wordmark.colored,
+.hero-tech-icon .devicon-amazonwebservices-original,
+.hero-tech-icon .devicon-amazonwebservices-plain {
+  color: #FF9900 !important;
+  font-size: 1.25rem;
+}
+
+.hero-tech-icon .devicon-docker-plain,
+.hero-tech-icon .devicon-docker-plain.colored {
+  color: #0DB7ED !important;
+}
+
+.hero-tech-icon .devicon-redis-plain,
+.hero-tech-icon .devicon-redis-plain.colored {
+  color: #DC382D !important;
+}
+
+.hero-tech-icon .devicon-azuredevops-plain,
+.hero-tech-icon .devicon-azuredevops-plain.colored {
+  color: #0078D7 !important;
+}
+
+.hero-tech-icon .devicon-csharp-plain,
+.hero-tech-icon .devicon-csharp-plain.colored {
+  color: #A179DC !important;
+}
+
+/* ─── ACTIONS ────────────────────────────────────────────────────────────── */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: clamp(1.4rem, 2.6vh, 2rem);
+}
+
+.hero-btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  height: 48px;
+  padding: 0 2.2rem;
+  border-radius: 12px;
+  font-family: var(--font-charan);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.26s var(--ease-out-expo),
+    box-shadow 0.26s var(--ease-out-expo),
+    background 0.26s var(--ease-out-expo),
+    border-color 0.26s var(--ease-out-expo),
+    color 0.26s var(--ease-out-expo);
+  box-sizing: border-box;
+}
+
+.hero-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+/* ─── PRIMARY: charged launch ─────────────────────────────────────────────── */
+.hero-btn--primary {
+  background: linear-gradient(135deg, #A855F7 0%, #8B5CF6 50%, #7C3AED 100%);
+  border: 1px solid rgba(232, 121, 249, 0.45);
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px -2px rgba(147, 51, 234, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* travelling light sweep */
+.hero-btn--primary::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -55%;
+  width: 38%;
+  height: 220%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.42) 50%, transparent 100%);
+  transform: skewX(-20deg) translateX(-140%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* arrow pair: the leading arrow exits right, a trail arrow follows in */
+.hero-btn-arrow-stack {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 1.25rem;
+  overflow: hidden;
+}
+
+.hero-btn-arrow {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1;
+  transition:
+    transform 0.38s var(--ease-out-expo),
+    opacity 0.26s ease;
+}
+
+.hero-btn-arrow-stack .hero-btn-arrow {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-btn-arrow--trail {
+  transform: translateX(-115%);
+  opacity: 0;
+}
+
+/* ─── GHOST: glass scan ───────────────────────────────────────────────────── */
+.hero-btn--ghost {
+  padding: 0 2.2rem;
+  background: rgba(16, 10, 28, 0.6);
+  border: 1px solid rgba(168, 85, 247, 0.38);
+  color: #EDE9FE;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* vertical scanline passing through the glass panel */
+.hero-btn--ghost::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 60%;
+  background: linear-gradient(180deg, transparent 0%, rgba(167, 139, 250, 0.22) 55%, transparent 100%);
+  transform: translateY(-130%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-btn--ghost svg:last-of-type {
+  width: 15px;
+  height: 15px;
+  opacity: 0.85;
+}
+
+/* the GitHub mark deserves a longer settle than the default icon easing */
+.hero-btn--ghost > svg:first-of-type {
+  transition-duration: 0.6s;
+}
+
+/* ─── HOVER CHOREOGRAPHY (pointer devices only) ───────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  .hero-btn--primary:hover {
+    transform: translateY(-2px);
+    border-color: rgba(240, 171, 252, 0.75);
+    box-shadow: 0 14px 36px rgba(168, 85, 247, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    background: linear-gradient(135deg, #B465FF 0%, #9566F8 50%, #8843F8 100%);
+  }
+
+  .hero-btn--primary:hover::after {
+    animation: hero-btn-sweep 0.85s var(--ease-out-expo) forwards;
+  }
+
+  .hero-btn--primary:hover > svg:first-of-type {
+    transform: translateY(-3px) rotate(-12deg);
+  }
+
+  .hero-btn--primary:hover .hero-btn-arrow {
+    transform: translateX(115%);
+    opacity: 0;
+  }
+
+  .hero-btn--primary:hover .hero-btn-arrow--trail {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .hero-btn--ghost:hover {
+    transform: translateY(-2px);
+    border-color: rgba(192, 132, 252, 0.7);
+    background: rgba(38, 20, 64, 0.7);
+    box-shadow: 0 8px 24px rgba(88, 40, 160, 0.35);
+    color: #FFFFFF;
+  }
+
+  .hero-btn--ghost:hover::before {
+    animation: hero-btn-scan 0.9s var(--ease-in-out) forwards;
+  }
+
+  .hero-btn--ghost:hover > svg:first-of-type {
+    transform: rotate(360deg);
+  }
+
+  .hero-btn--ghost:hover > svg:last-of-type {
+    transform: translate(2px, -2px);
+    opacity: 1;
+  }
+}
+
+/* ─── PRESS / FOCUS ───────────────────────────────────────────────────────── */
+.hero-btn:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.09s;
+}
+
+.hero-btn--primary:active {
+  border-color: rgba(232, 121, 249, 0.85);
+  box-shadow: 0 3px 12px -2px rgba(147, 51, 234, 0.6), inset 0 2px 6px rgba(60, 10, 100, 0.35);
+}
+
+.hero-btn--ghost:active {
+  transform: translateY(0) scale(0.98);
+  background: rgba(58, 32, 96, 0.85);
+  border-color: rgba(192, 132, 252, 0.9);
+  box-shadow: 0 0 0 1px rgba(192, 132, 252, 0.35), inset 0 2px 8px rgba(20, 8, 40, 0.6);
+}
+
+.hero-btn:focus-visible {
+  outline: 2px solid rgba(103, 232, 249, 0.85);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 1px rgba(103, 232, 249, 0.35), 0 0 22px rgba(103, 232, 249, 0.35);
+}
+
+/* ─── PRESS RIPPLE ────────────────────────────────────────────────────────── */
+.hero-btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.16) 45%, transparent 70%);
+  box-shadow: 0 0 0 2px rgba(103, 232, 249, 0.55);
+  transform: scale(0);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 2;
+  animation: hero-btn-ripple 0.62s var(--ease-out-expo) forwards;
+}
+
+@keyframes hero-btn-sweep {
+  0% {
+    transform: skewX(-20deg) translateX(-140%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: skewX(-20deg) translateX(460%);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-btn-scan {
+  0% {
+    transform: translateY(-130%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(220%);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-btn-ripple {
+  from {
+    transform: scale(0);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* ─── REDUCED MOTION ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-btn::before,
+  .hero-btn::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  .hero-btn-ripple {
+    display: none !important;
+  }
+
+  .hero-btn svg {
+    transform: none !important;
+  }
+
+  .hero-btn-arrow {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .hero-btn-arrow--trail {
+    display: none !important;
+  }
+
+  .hero-btn--primary:hover,
+  .hero-btn--ghost:hover,
+  .hero-btn:active,
+  .hero-btn--primary:active,
+  .hero-btn--ghost:active {
+    transform: none;
+  }
+}
+
+/* ─── KEY METRICS ────────────────────────────────────────────────────────── */
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 0.9rem;
+  margin: clamp(1.7rem, 3.4vh, 2.6rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-right: clamp(0.9rem, 1.9vw, 2.2rem);
+}
+
+.hero-stat + .hero-stat {
+  border-left: 1px solid rgba(168, 85, 247, 0.22);
+  padding-left: clamp(0.9rem, 1.9vw, 2.2rem);
+}
+
+.hero-stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #D946EF;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 7px rgba(217, 70, 239, 0.45));
+}
+
+.hero-stat-icon svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+  overflow: visible;
+}
+
+.hero-stat-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.hero-stat-value {
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.hero-stat-label {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #9CA3AF;
+  letter-spacing: 0.01em;
+}
+
+.hero-stat-label--highlight {
+  color: #C4B5FD;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 1500px) {
+  .hero-content {
+    width: min(64%, 900px);
+  }
+
+  .hero-tech-stack {
+    gap: 0.5rem;
+  }
+
+  .hero-tech-chip {
+    height: 36px;
+    padding: 0 0.95rem;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+  }
+
+  .hero-tech-icon i {
+    font-size: 1.1rem;
+  }
+
+  .hero-tech-icon svg {
+    height: 16px;
+    width: auto;
+    max-width: 24px;
+  }
+}
+
+/* Short desktop viewports: compress the vertical rhythm so nothing clips */
+@media (max-height: 820px) and (min-width: 901px) {
+  .hero-stage {
+    align-items: flex-start;
+    padding-top: 6.7rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-eyebrow {
+    margin-top: 1.15rem;
+  }
+
+  .hero-headline {
+    margin-top: 0.15rem;
+    font-size: clamp(1.9rem, 3.38vw, 3.55rem);
+  }
+
+  .hero-bio {
+    margin-top: 1rem;
+    line-height: 1.42;
+  }
+
+  .hero-tech-stack {
+    margin-top: 0.95rem;
+  }
+
+  .hero-actions {
+    margin-top: 2.1rem;
+  }
+
+  .hero-btn {
+    height: 50px;
+  }
+
+  .hero-stats {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .hero-content {
+    width: min(64%, 900px);
+  }
+
+  .hero-stat {
+    padding-right: 1.1rem;
+  }
+
+  .hero-stat + .hero-stat {
+    padding-left: 1.1rem;
+  }
+
+  .hero-stat-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero-stat-label {
+    font-size: 0.74rem;
+  }
+}
+
+@media (max-width: 1240px) {
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.05rem 1.2rem;
+    max-width: 560px;
+  }
+
+  .hero-stat {
+    padding-right: 0;
+  }
+
+  .hero-stat + .hero-stat {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 1080px) {
+  .hero-stage {
+    padding-top: 7rem;
+  }
+
+  .hero-backdrop-img {
+    object-position: 88% center;
+  }
+
+  .hero-backdrop-gradient {
+    background: linear-gradient(
+      90deg,
+      #08060F 0%,
+      rgba(8, 6, 15, 0.95) 32%,
+      rgba(8, 6, 15, 0.72) 52%,
+      rgba(8, 6, 15, 0.28) 68%,
+      transparent 82%
+    );
+  }
+
+  .hero-content {
+    width: min(70%, 820px);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-stage {
+    padding: 7rem 0 4rem;
+    min-height: auto;
+  }
+
+  .hero-backdrop-img {
+    object-position: 68% center;
+    opacity: 0.42;
+  }
+
+  .hero-backdrop-gradient {
+    background:
+      linear-gradient(180deg, rgba(8, 6, 15, 0.9) 0%, rgba(8, 6, 15, 0.75) 45%, #08060F 100%);
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 640px;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.1rem, 7vw, 3.2rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-btn {
+    width: 100%;
+    height: 52px;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.15rem 1rem;
+    width: 100%;
+  }
+
+  .hero-stat {
+    padding-right: 0;
+  }
+
+  .hero-stat + .hero-stat {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .hero-stat-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .hero-stat-value {
+    font-size: 0.9rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.72rem;
+  }
+}

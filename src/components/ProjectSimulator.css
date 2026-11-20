@@ -1,0 +1,369 @@
+/* ============================================================================
+   PROJECT SIMULATOR STYLES
+   Wakandan FUI (Fictional User Interface) pipeline architecture diagram
+   ============================================================================ */
+
+.simulator-section {
+  position: relative;
+  background: radial-gradient(circle at 50% 30%, rgba(139, 92, 246, 0.08) 0%, var(--deep-black) 70%);
+  overflow: hidden;
+}
+
+.simulator-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.simulator-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.85rem 1.25rem;
+  background: rgba(13, 13, 20, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  min-width: 200px;
+  text-align: left;
+}
+
+.simulator-tab:hover {
+  border-color: var(--vibranium-violet);
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.simulator-tab--active {
+  border-color: var(--vibranium-violet);
+  background: rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 20px var(--glow-violet);
+}
+
+.tab-proj {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: var(--holographic-cyan);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.tab-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Console Container */
+.simulator-console {
+  padding: 2.25rem;
+  background: rgba(10, 10, 16, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), inset 0 0 40px rgba(139, 92, 246, 0.05);
+}
+
+/* Afrofuturistic corner brackets */
+.simulator-console::before,
+.simulator-console::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--holographic-cyan);
+  pointer-events: none;
+}
+
+.simulator-console::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--holographic-cyan);
+  border-left: 2px solid var(--holographic-cyan);
+}
+
+.simulator-console::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--holographic-cyan);
+  border-right: 2px solid var(--holographic-cyan);
+}
+
+.console-hud-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 2.5rem;
+}
+
+.console-hud-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+}
+
+.console-hud-metrics {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--vibranium-violet);
+}
+
+.hud-sep {
+  color: var(--text-muted);
+}
+
+/* Stepper Node Circuit Track */
+.simulator-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 3rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scrollbar-width: thin;
+}
+
+.track-node-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  flex: 1;
+  min-width: 90px;
+}
+
+.track-node {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  z-index: 2;
+}
+
+.node-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color var(--duration-fast);
+}
+
+.node-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  text-align: center;
+  max-width: 100px;
+  line-height: 1.3;
+  transition: color var(--duration-fast);
+}
+
+/* Past Step */
+.track-node--past .track-node {
+  border-color: var(--vibranium-violet);
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.track-node--past .node-num {
+  color: var(--electric-violet);
+}
+
+/* Current Step */
+.track-node--current .track-node {
+  border-color: var(--holographic-cyan);
+  background: var(--surface-elevated);
+  box-shadow: 0 0 20px var(--glow-cyan), inset 0 0 10px rgba(103, 232, 249, 0.3);
+  transform: scale(1.15);
+}
+
+.track-node--current .node-num {
+  color: #fff;
+  font-weight: 700;
+}
+
+.track-node--current .node-label {
+  color: var(--holographic-cyan);
+  font-weight: 600;
+}
+
+/* Track Connector Line */
+.track-connector {
+  position: absolute;
+  top: 19px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: rgba(139, 92, 246, 0.15);
+  z-index: 1;
+  transition: background var(--duration-normal);
+}
+
+.track-connector--active {
+  background: linear-gradient(90deg, var(--vibranium-violet), var(--holographic-cyan));
+  box-shadow: 0 0 8px var(--glow-violet);
+}
+
+.simulator-active-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: stretch;
+}
+
+.step-display-card {
+  padding: 1.75rem;
+  background: rgba(7, 7, 11, 0.75);
+  border: 1px solid rgba(103, 232, 249, 0.2);
+  border-left: 3px solid var(--holographic-cyan);
+  border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 30px rgba(103, 232, 249, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reactor-hologram-card {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.15);
+  background: rgba(7, 7, 11, 0.8);
+  min-height: 180px;
+}
+
+.reactor-img {
+  width: 100%;
+  height: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.reactor-img--pulsing {
+  animation: core-pulse 1.5s ease-in-out infinite alternate;
+  filter: saturate(1.4) brightness(1.1);
+}
+
+.reactor-tag-badge {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.65rem;
+  background: rgba(7, 7, 11, 0.85);
+  border: 1px solid rgba(103, 232, 249, 0.3);
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--holographic-cyan);
+  letter-spacing: 0.12em;
+  backdrop-filter: blur(8px);
+}
+
+.step-display-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.step-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.component-chip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+
+.chip--violet {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--electric-violet);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.chip--cyan {
+  background: rgba(103, 232, 249, 0.12);
+  color: var(--holographic-cyan);
+  border: 1px solid rgba(103, 232, 249, 0.3);
+}
+
+.chip--silver {
+  background: rgba(216, 216, 224, 0.1);
+  color: var(--metallic-silver);
+  border: 1px solid rgba(216, 216, 224, 0.2);
+}
+
+.step-phase {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+}
+
+.step-title-text {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.step-detail-description {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Controls */
+.simulator-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .simulator-console {
+    padding: 1.25rem;
+  }
+  .track-node-wrapper {
+    min-width: 75px;
+  }
+  .simulator-active-row {
+    grid-template-columns: 1fr;
+  }
+}

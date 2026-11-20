@@ -1,0 +1,191 @@
+/* ============================================================================
+   EXPERIENCE SECTION STYLES
+   Wakandan timeline circuit with glowing markers, spines, and telemetry cards
+   ============================================================================ */
+
+.experience-section {
+  position: relative;
+  background: linear-gradient(180deg, rgba(3, 3, 5, 0.92), rgba(3, 3, 5, 0.75) 50%, rgba(3, 3, 5, 0.94)), url('../../bp/SaveClip.App_786282177_17904710676542850_1749730413418382940_n.jpg') center 35% / cover fixed;
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: relative;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.marker-ring {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--vibranium-violet);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px var(--glow-violet);
+  z-index: 2;
+  transition: transform var(--duration-fast);
+}
+
+.marker-core {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--holographic-cyan);
+  box-shadow: 0 0 10px var(--holographic-cyan);
+}
+
+.timeline-spine {
+  position: absolute;
+  top: 32px;
+  bottom: -2.5rem;
+  width: 2px;
+  background: linear-gradient(180deg, var(--vibranium-violet) 0%, rgba(139, 92, 246, 0.2) 100%);
+  z-index: 1;
+}
+
+.timeline-content {
+  flex: 1;
+  padding: 2rem;
+  background: rgba(13, 13, 20, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.timeline-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.company-badge {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--holographic-cyan);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.role-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.timeline-period-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.period-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--electric-violet);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.period-loc {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.timeline-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.responsibilities-block {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: rgba(7, 7, 11, 0.5);
+  border-radius: var(--radius-sm);
+  border-left: 2px solid var(--vibranium-violet);
+}
+
+.responsibilities-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--vibranium-violet);
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.responsibilities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.responsibility-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.resp-bullet {
+  color: var(--holographic-cyan);
+  font-weight: bold;
+}
+
+.timeline-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 640px) {
+  .timeline-item {
+    gap: 1rem;
+  }
+  .marker-ring {
+    width: 24px;
+    height: 24px;
+  }
+  .marker-core {
+    width: 8px;
+    height: 8px;
+  }
+  .timeline-spine {
+    top: 24px;
+  }
+  .timeline-content {
+    padding: 1.25rem;
+  }
+  .timeline-period-badge {
+    align-items: flex-start;
+  }
+}
+

@@ -1,0 +1,714 @@
+/* ============================================================================
+   ABOUT SECTION — WAKANDA ENGINEERING DOSSIER
+   Pixel-Perfect Match of User Design (Design 3 + Master Background)
+   100% Single-Viewport Desktop Lock (Zero Scroll Needed at 100% Browser Zoom)
+   ============================================================================ */
+
+.as-about-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #030206;
+  color: #FFFFFF;
+  padding: 4.2rem 2.5rem 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* ─── DESKTOP SINGLE-VIEWPORT LOCK (Fits 100% Zoom Completely Without Scrolling) ─── */
+@media (min-width: 1024px) and (min-height: 640px) {
+  .as-about-section {
+    height: 100vh;
+    max-height: 100vh;
+    padding: 4.0rem 2.5rem 0.85rem;
+    overflow: hidden;
+  }
+}
+
+/* ─── MASTER BACKGROUND (Warrior Looking Up + Mandala + Ancestral Panther Spirit) ─── */
+.as-about-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/panther-spirit-about-bg.webp'), url('../assets/panther-spirit-about-bg.png');
+  background-size: min(1560px, 94vw) auto;
+  background-position: 45% center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 1;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+
+/* Subtle Vignette Shadows for Top Navigation Only (Zero Fade on Bottom) */
+.as-about-vignette {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    /* Top cinematic blend from navigation only */
+    linear-gradient(to bottom, #030206 0%, rgba(3, 2, 6, 0.6) 4%, transparent 12%);
+}
+
+/* ─── TOP STATUS BAR ─────────────────────────────────────────────────────── */
+.as-top-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 1680px;
+  width: 100%;
+  margin: 0 auto 0.5rem;
+  padding-bottom: 0.2rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: rgba(168, 85, 247, 0.85);
+  box-sizing: border-box;
+}
+
+.as-top-section-code {
+  color: #C084FC;
+}
+
+.as-top-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.7rem;
+  color: #67E8F9;
+  letter-spacing: 0.12em;
+}
+
+.as-status-pip {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #67E8F9;
+  box-shadow: 0 0 8px #67E8F9;
+  animation: asPulseCyan 2s infinite ease-in-out;
+}
+
+@keyframes asPulseCyan {
+  0%, 100% { opacity: 0.7; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 12px #22D3EE; }
+}
+
+.as-status-dot {
+  color: rgba(103, 232, 249, 0.4);
+}
+
+.as-status-text {
+  color: #67E8F9;
+}
+
+/* ─── MAIN CONTENT CONTAINER ─────────────────────────────────────────────── */
+.as-about-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1680px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 auto;
+}
+
+/* ─── 3-ZONE SYMMETRICAL SENTRY GRID ─────────────────────────────────────── */
+.as-about-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(180px, 22vw) minmax(440px, 1.25fr);
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+@media (max-width: 1200px) {
+  .as-about-grid {
+    grid-template-columns: minmax(300px, 1fr) minmax(100px, 14vw) minmax(420px, 1.2fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .as-about-section {
+    height: auto;
+    max-height: none;
+    overflow-y: visible;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+
+  .as-about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .as-about-center-spacer {
+    display: none;
+  }
+}
+
+/* ─── LEFT FLANK: ABOUT CHARAN KUMAR ─────────────────────────────────────── */
+.as-flank-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 460px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Pill Badge */
+.as-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.28rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(147, 51, 234, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.45);
+  margin-bottom: 0.65rem;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+}
+
+.as-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #C084FC;
+  box-shadow: 0 0 6px #C084FC;
+}
+
+.as-pill-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #E9D5FF;
+}
+
+/* Main Heading: ABOUT CHARAN KUMAR (AboutDisplay Exact Match) */
+.as-heading {
+  font-family: 'AboutDisplay', sans-serif;
+  font-size: clamp(2.1rem, 3.4vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: 0.04em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.as-heading-line {
+  display: block;
+}
+
+.as-heading-white {
+  color: #FFFFFF;
+}
+
+.as-heading-purple {
+  background: linear-gradient(135deg, #C084FC 0%, #A855F7 50%, #EC4899 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 16px rgba(168, 85, 247, 0.45));
+}
+
+/* Glowing Accent Line Directly Under Title */
+.as-heading-bar {
+  width: 140px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #A855F7 0%, #C084FC 60%, transparent 100%);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.6);
+  margin-top: 0.45rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Role Subtitle */
+.as-role-subtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(0.72rem, 1vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #CBD5E1;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.as-sub-sep {
+  color: #A855F7;
+  font-weight: bold;
+}
+
+/* Narrative Bios */
+.as-bio-lead {
+  font-size: clamp(0.82rem, 1.05vw, 0.92rem);
+  line-height: 1.55;
+  color: #E2E8F0;
+  margin: 0 0 0.65rem 0;
+  font-weight: 400;
+}
+
+.as-bio-secondary {
+  font-size: clamp(0.78rem, 0.98vw, 0.86rem);
+  line-height: 1.5;
+  color: #94A3B8;
+  margin: 0 0 1rem 0;
+}
+
+.as-bio-secondary strong {
+  color: #F1F5F9;
+  font-weight: 600;
+}
+
+/* Quick Meta Chips Row */
+.as-meta-chips {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  margin-bottom: 1.15rem;
+  width: 100%;
+}
+
+.as-meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(16, 10, 28, 0.75);
+  border: 1px solid rgba(168, 85, 247, 0.38);
+  border-radius: 10px;
+  font-size: 0.74rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  color: #F1F5F9;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.as-meta-chip:hover {
+  background: rgba(168, 85, 247, 0.18);
+  border-color: rgba(192, 132, 252, 0.6);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
+  color: #FFFFFF;
+}
+
+.as-chip-emoji {
+  font-size: 0.85rem;
+}
+
+/* Action Buttons (Always Side-by-Side in Single Horizontal Line) */
+.as-actions-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.as-btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.62rem 1.25rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #9333EA 0%, #A855F7 50%, #C084FC 100%);
+  color: #FFFFFF;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.45);
+  transition: all 0.25s ease;
+}
+
+.as-btn-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(168, 85, 247, 0.7);
+  background: linear-gradient(135deg, #A855F7 0%, #C084FC 100%);
+}
+
+.as-btn-download-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.as-btn-connect {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  background: rgba(10, 6, 20, 0.65);
+  color: #F1F5F9;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1.5px solid rgba(168, 85, 247, 0.55);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.as-btn-connect:hover {
+  transform: translateY(-2px);
+  background: rgba(168, 85, 247, 0.18);
+  border-color: #C084FC;
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.4);
+  color: #FFFFFF;
+}
+
+.as-btn-arrow {
+  color: #C084FC;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease;
+}
+
+.as-btn-connect:hover .as-btn-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ─── CENTER CLEAR CORRIDOR ──────────────────────────────────────────────── */
+.as-about-center-spacer {
+  pointer-events: none;
+  min-height: 200px;
+  width: 100%;
+}
+
+/* ─── RIGHT FLANK: CARDS HUD ─────────────────────────────────────────────── */
+.as-flank-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 530px;
+  width: 100%;
+  margin-left: auto;
+  box-sizing: border-box;
+}
+
+/* Section Header Labels (/ QUICK INTRO, / WHAT DRIVES ME, / MY PHILOSOPHY) */
+.as-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+.as-card-header-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.as-label-slash {
+  color: #D946EF;
+  font-weight: 900;
+  font-size: 0.9rem;
+  text-shadow: 0 0 10px rgba(217, 70, 239, 0.8);
+}
+
+/* Sci-Fi 45-Degree Chamfer Corner Card Base */
+.as-chamfer-box {
+  position: relative;
+  background: rgba(10, 6, 20, 0.78);
+  border: 1px solid rgba(168, 85, 247, 0.38);
+  clip-path: polygon(
+    16px 0%,
+    100% 0%,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    0% 100%,
+    0% 16px
+  );
+  border-radius: 4px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.as-bento-card.as-chamfer-box {
+  clip-path: polygon(
+    14px 0%,
+    100% 0%,
+    100% calc(100% - 14px),
+    calc(100% - 14px) 100%,
+    0% 100%,
+    0% 14px
+  );
+}
+
+/* Corner Chamfer Accents (45-degree diagonal cross edges) */
+.as-chamfer-corner {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.as-chamfer-corner.tl {
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 6px rgba(192, 132, 252, 0.7));
+}
+
+.as-chamfer-corner.tl.philo {
+  width: 38px;
+  height: 38px;
+}
+
+.as-chamfer-corner.br {
+  bottom: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 0 6px rgba(192, 132, 252, 0.7));
+}
+
+.as-chamfer-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 1. Quick Intro Table Card */
+.as-card-intro {
+  padding: 0.8rem 1.15rem;
+}
+
+.as-table-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.48rem;
+  position: relative;
+  z-index: 2;
+}
+
+.as-table-row {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #CBD5E1;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.as-row-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 110px;
+  flex-shrink: 0;
+  color: #C084FC;
+}
+
+.as-row-icon {
+  display: flex;
+  align-items: center;
+  color: #C084FC;
+}
+
+.as-row-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.10em;
+  color: #CBD5E1;
+  font-weight: 700;
+}
+
+.as-row-arrow {
+  color: rgba(192, 132, 252, 0.6);
+  margin-right: 0.75rem;
+  font-weight: bold;
+}
+
+.as-row-val {
+  color: #FFFFFF;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.as-card-panther-watermark {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.75;
+  z-index: 1;
+}
+
+/* 2. What Drives Me (3-Column Bento) */
+.as-drives-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.as-bento-card {
+  padding: 0.85rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+}
+
+.as-bento-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(192, 132, 252, 0.6);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.35);
+}
+
+.as-bento-icon-box {
+  color: #C084FC;
+  margin-bottom: 0.4rem;
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.5));
+}
+
+.as-bento-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+.as-bento-sub {
+  font-size: 0.68rem;
+  line-height: 1.35;
+  color: #94A3B8;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* 3. My Philosophy Quote Card */
+.as-card-philosophy {
+  padding: 0.85rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.as-quote-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.as-quote-mark {
+  font-family: 'Georgia', serif;
+  font-size: 2.6rem;
+  line-height: 0.8;
+  color: #C084FC;
+  text-shadow: 0 0 12px rgba(192, 132, 252, 0.6);
+  flex-shrink: 0;
+}
+
+.as-quote-text {
+  font-size: clamp(0.74rem, 0.95vw, 0.82rem);
+  font-style: italic;
+  line-height: 1.45;
+  color: #F1F5F9;
+  margin: 0;
+  font-weight: 400;
+}
+
+.as-skyline-silhouette {
+  flex-shrink: 0;
+  opacity: 0.9;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+/* ─── BOTTOM SCROLL HUD ──────────────────────────────────────────────────── */
+.as-bottom-hud {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin: 0.4rem auto 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  user-select: none;
+}
+
+.as-bottom-hud:hover {
+  opacity: 0.8;
+}
+
+.as-hud-scroll-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: rgba(168, 85, 247, 0.75);
+}
+
+.as-hud-arrow {
+  color: #67E8F9;
+  animation: asBounce 2s infinite ease-in-out;
+}
+
+@keyframes asBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* ─── ULTRA-WIDE SCREENS (> 1920px) ──────────────────────────────────────── */
+@media (min-width: 1920px) {
+  .as-about-grid {
+    gap: 3rem;
+  }
+  .as-heading {
+    font-size: 3.4rem;
+  }
+}

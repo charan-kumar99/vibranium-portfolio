@@ -1,0 +1,515 @@
+/* ============================================================================
+   FEATURED PROJECTS — CLEAN 3x2 WAKANDA GRID (SINGLE PAGE 100VH)
+   Direct matching user reference mockup (media_1795168699970_e77acdc0.jpg)
+   ============================================================================ */
+
+.featured-projects-section {
+  position: relative;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  padding-top: clamp(1.4rem, 3vh, 2.2rem);
+  padding-bottom: clamp(0.5rem, 1.2vh, 0.8rem);
+  padding-left: clamp(1.2rem, 2.5vw, 3rem);
+  padding-right: clamp(1.2rem, 2.5vw, 3rem);
+  background-color: #030206;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Master Cinematic Background: Black Panther perched on the left overlooking neon city */
+.featured-projects-bg {
+  position: absolute;
+  top: 0;
+  left: -140px;
+  width: calc(100% + 200px);
+  height: 100%;
+  background-image: url('../assets/projects-neon-city-perch.jpg');
+  background-size: cover;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 960px) {
+  .featured-projects-bg {
+    left: 0;
+    width: 100%;
+    background-size: cover;
+    background-position: 15% bottom;
+  }
+}
+
+/* Atmospheric Vignette: Deep rich void fading out into the city lights */
+.featured-projects-vignette {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    #030206 0%,
+    rgba(15, 6, 32, 0.65) 6%,
+    rgba(8, 4, 18, 0.75) 12%,
+    rgba(3, 2, 6, 0.5) 22%,
+    transparent 42%,
+    transparent 84%,
+    rgba(3, 2, 6, 0.25) 94%,
+    rgba(3, 2, 6, 0.6) 100%
+  );
+}
+
+/* Container: Fits 100% height flex */
+.featured-projects-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* ─── TOP HEADER ROW ────────────────────────────────────────────────────── */
+.fp-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: clamp(0.3rem, 0.6vh, 0.6rem);
+  flex-shrink: 0;
+}
+
+.fp-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.fp-eyebrow-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.fp-eyebrow-text {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: #C084FC;
+}
+
+.fp-eyebrow-line {
+  display: inline-block;
+  width: 50px;
+  height: 1.5px;
+  background: linear-gradient(90deg, #A855F7, transparent);
+}
+
+.fp-headline {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.95;
+  margin: 0.1rem 0;
+}
+
+.headline-featured {
+  font-family: 'Oxanium', 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+}
+
+.headline-projects {
+  font-family: 'Oxanium', 'Bebas Neue', sans-serif;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #A855F7;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.55);
+}
+
+.fp-subtext {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(0.7rem, 0.8vw, 0.8rem);
+  color: #94A3B8;
+  margin: 0;
+}
+
+.subtext-bar {
+  display: inline-block;
+  width: 3px;
+  height: 14px;
+  background: #A855F7;
+  box-shadow: 0 0 6px #A855F7;
+  border-radius: 2px;
+}
+
+/* Header Right: Filter Pills */
+.fp-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.fp-filter-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  background: linear-gradient(135deg, rgba(22, 10, 40, 0.5) 0%, rgba(10, 5, 22, 0.3) 100%);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  padding: 0.2rem 0.35rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.fp-filter-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #94A3B8;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.28rem 0.75rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fp-filter-btn:hover {
+  color: #FFFFFF;
+  background: rgba(168, 85, 247, 0.2);
+}
+
+.fp-filter-btn.active {
+  background: linear-gradient(135deg, #7E22CE, #9333EA);
+  color: #FFFFFF;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.55);
+}
+
+/* ─── 3x2 CLEAN CARDS GRID (RIGHT NEGATIVE SPACE) ────────────────────────── */
+.fp-grid-wrapper {
+  width: 100%;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  min-height: 0;
+}
+
+@media (min-width: 1400px) {
+  .fp-grid-wrapper {
+    max-width: 890px;
+  }
+}
+
+.fp-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 1vw, 14px);
+}
+
+/* Individual Card (Tactical Chamfer Glassmorphism) */
+.fp-project-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(22, 10, 44, 0.6) 0%, rgba(10, 5, 24, 0.42) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(168, 85, 247, 0.38);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  border-left: 1px solid rgba(192, 132, 252, 0.35);
+  border-radius: 16px 8px 16px 8px;
+  padding: clamp(0.65rem, 1.1vh, 0.9rem) clamp(0.7rem, 1vw, 0.95rem);
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(168, 85, 247, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.fp-project-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(192, 132, 252, 0.65);
+  border-top-color: rgba(255, 255, 255, 0.48);
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(168, 85, 247, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, rgba(30, 12, 58, 0.7) 0%, rgba(14, 6, 32, 0.5) 100%);
+}
+
+/* Card Top: Number + Date */
+.wp-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.1rem;
+}
+
+.wp-card-num {
+  font-family: 'Oxanium', 'Space Grotesk', sans-serif;
+  font-size: clamp(1.15rem, 1.35vw, 1.35rem);
+  font-weight: 800;
+  color: #C084FC;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.55);
+}
+
+.wp-card-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.54rem;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  letter-spacing: 0.04em;
+}
+
+.wp-cal-icon {
+  font-size: 0.56rem;
+}
+
+/* Card Icon */
+.wp-card-icon-wrap {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #C084FC;
+  margin: 0.15rem 0 0.25rem;
+  filter: drop-shadow(0 0 6px rgba(192, 132, 252, 0.55));
+}
+
+.wp-card-svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Card Title & Subtitle */
+.wp-card-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.85rem, 0.95vw, 0.98rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 0.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wp-card-subtitle {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: #CBD5E1;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Card Description */
+.wp-card-desc {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: clamp(0.6rem, 0.68vw, 0.68rem);
+  color: #94A3B8;
+  line-height: 1.35;
+  margin: 0 0 0.4rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 1.9em;
+}
+
+/* Tech Tags Row */
+.wp-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: auto;
+}
+
+.wp-tag-pill {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.5rem;
+  color: #E9D5FF;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.28);
+  border-radius: 9999px;
+  padding: 0.1rem 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+/* Card Footer: Action Pill + Circular Arrow */
+.wp-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.45rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wp-action-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: rgba(10, 5, 22, 0.7);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: 9999px;
+  padding: 0.22rem 0.65rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.wp-action-pill:hover {
+  background: rgba(168, 85, 247, 0.25);
+  border-color: rgba(192, 132, 252, 0.6);
+  color: #FFFFFF;
+}
+
+.wp-pill-svg {
+  display: block;
+}
+
+.wp-action-arrow {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.76rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.wp-action-arrow:hover {
+  background: linear-gradient(135deg, #7E22CE, #9333EA);
+  border-color: #C084FC;
+  transform: translateX(2px);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+/* ─── BOTTOM TELEMETRY HUD BAR ──────────────────────────────────────────── */
+.fp-bottom-hud-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: clamp(0.25rem, 0.5vh, 0.45rem);
+  padding-top: clamp(0.25rem, 0.5vh, 0.4rem);
+  border-top: 1px solid rgba(168, 85, 247, 0.15);
+  flex-shrink: 0;
+}
+
+.hud-left-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: #94A3B8;
+}
+
+.hud-left-brand .dot {
+  color: #A855F7;
+}
+
+.hud-center-crest {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panther-emblem-svg {
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6));
+}
+
+.hud-right-tagline {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #E2E8F0;
+}
+
+.motto-slash {
+  color: #A855F7;
+  font-weight: 900;
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .featured-projects-section {
+    height: auto;
+    min-height: 100vh;
+    max-height: unset;
+    overflow-y: auto;
+    padding: 3rem 1.5rem;
+  }
+
+  .fp-grid-wrapper {
+    max-width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .fp-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .fp-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fp-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fp-bottom-hud-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    text-align: center;
+  }
+}

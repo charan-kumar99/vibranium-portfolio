@@ -1,0 +1,423 @@
+/* ============================================================================
+   TOP NAVIGATION — CRIMSON MOON
+   Reference-matched telemetry bar: reticle rails, brand lockup, eight links,
+   rail baseline with instrumentation ticks, ambient-light toggle.
+   ============================================================================ */
+
+.nav-top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.1rem clamp(1.2rem, 2.3vw, 2.6rem) 0.45rem;
+  padding-left: clamp(2.85rem, 4.6vw, 5.05rem);
+  background: linear-gradient(180deg, rgba(26, 12, 46, 0.55) 0%, rgba(16, 8, 30, 0.2) 62%, transparent 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  will-change: transform, opacity;
+}
+
+/* Retracted on downward scroll; any upward scroll slides it back in. */
+.nav-top-bar--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Keyboard users must still be able to reach a retracted bar. */
+.nav-top-bar--hidden:focus-within {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Faint hairline along the top edge of the viewport */
+.nav-top-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(168, 85, 247, 0.3) 22%,
+    rgba(192, 132, 252, 0.5) 50%,
+    rgba(168, 85, 247, 0.3) 78%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.nav-top-bar--scrolled {
+  padding-top: 0.68rem;
+  padding-bottom: 0.36rem;
+  background: rgba(11, 7, 20, 0.92);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.18);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.6);
+}
+
+.nav-top-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+/* ─── BRAND ──────────────────────────────────────────────────────────────── */
+.nav-brand-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.68rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.nav-ck-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.45));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.nav-ck-logo svg,
+.nav-ck-logo img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.nav-brand-group:hover .nav-ck-logo {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 16px rgba(168, 85, 247, 0.75));
+}
+
+.nav-title-text {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-wakanda-panther);
+  font-size: clamp(0.93rem, 1.14vw, 1.19rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+/* Hairline separator between the wordmark and the role label */
+.nav-brand-divider {
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  margin-left: 0.05rem;
+  background: rgba(255, 255, 255, 0.26);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Role label riding beside the wordmark */
+.nav-brand-role {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 0.55rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.74);
+  white-space: nowrap;
+}
+
+/* ─── LINKS ──────────────────────────────────────────────────────────────── */
+.nav-menu-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+
+.nav-links-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.85rem, 2.7vw, 2.85rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link-btn {
+  position: relative;
+  display: inline-block;
+  padding: 0.33rem 0.08rem 1.02rem;
+  background: transparent;
+  border: none;
+  font-family: 'Manrope', 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.72rem, 0.86vw, 0.92rem);
+  font-weight: 500;
+  letter-spacing: 0.004em;
+  color: #B7B2C6;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.nav-link-btn:hover {
+  color: #F3EFFF;
+  text-shadow: 0 0 12px rgba(192, 132, 252, 0.45);
+}
+
+.nav-link-btn--active {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* Hairline rail beneath the links */
+.nav-baseline-rule {
+  position: absolute;
+  bottom: 0;
+  left: -0.85rem;
+  right: -1.4rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.14) 6%,
+    rgba(255, 255, 255, 0.12) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Active indicator sitting on the rail */
+.nav-active-bar {
+  position: absolute;
+  left: -0.1rem;
+  right: -0.1rem;
+  bottom: -2px;
+  height: 5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #A855F7 0%, #C084FC 60%, #8B5CF6 100%);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.95), 0 0 22px rgba(168, 85, 247, 0.45);
+  z-index: 4;
+}
+
+/* Instrumentation ticks under the final links */
+.nav-contact-telemetry {
+  position: absolute;
+  top: 100%;
+  right: -1.4rem;
+  margin-top: -1px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.nav-telemetry-svg {
+  display: block;
+}
+
+/* ─── UTILITIES ──────────────────────────────────────────────────────────── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.05rem;
+  margin-left: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* The link buttons carry 0.33rem of top padding but 1.02rem of bottom padding
+   (the extra space is the rail / indicator lane), so the labels sit half of that
+   difference — 0.345rem — above the row's centre. Centring the utilities in the
+   row box therefore leaves the toggle visibly low. Matching the bottom margin to
+   the padding difference pulls the button back onto the words' optical centre.
+   Scoped to the desktop rail, because below 1120px there are no links to align
+   with and the drawer replaces them. */
+@media (min-width: 1121px) {
+  .nav-actions {
+    margin-bottom: 0.69rem;
+  }
+}
+
+/* The two utility buttons sit as one cluster so the rail stays compact. */
+.nav-utility-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.nav-theme-toggle {
+  width: 28px;
+  height: 28px;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 8px;
+  background: rgba(52, 26, 96, 0.5);
+  border: 1px solid rgba(168, 85, 247, 0.44);
+  color: #E9E4FF;
+  cursor: pointer;
+  /* Named properties rather than `all`: transition only what actually changes,
+     so the glyph is never re-rasterised mid-hover and stays crisp. */
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 16px of art in a 26px content box leaves 5px of padding on every side — whole
+   pixels, so the strokes land on the grid instead of a half-pixel edge. */
+.nav-theme-toggle svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  overflow: visible;
+}
+
+.nav-theme-toggle:hover {
+  background: rgba(109, 51, 198, 0.55);
+  border-color: rgba(216, 180, 254, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 0 1px rgba(192, 132, 252, 0.2),
+    0 8px 18px rgba(88, 28, 135, 0.4);
+  transform: translateY(-1px);
+}
+
+.nav-theme-toggle--on {
+  background: rgba(139, 92, 246, 0.28);
+  color: #FBBF24;
+  border-color: rgba(192, 132, 252, 0.7);
+}
+
+/* Mobile toggle */
+.nav-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0.55rem;
+  background: transparent;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.nav-mobile-toggle span {
+  width: 20px;
+  height: 2px;
+  background: #E2E8F0;
+  transition: all 0.25s ease;
+}
+
+.nav-mobile-toggle--open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav-mobile-toggle--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-mobile-toggle--open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.nav-mobile-drawer {
+  display: none;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .nav-top-inner {
+    gap: 1rem;
+  }
+
+  .nav-actions {
+    margin-left: 0.9rem;
+    gap: 0.9rem;
+  }
+
+  /* The rail gets tight — keep the lockup to logo + wordmark only */
+  .nav-brand-divider,
+  .nav-brand-role {
+    display: none;
+  }
+}
+
+@media (max-width: 1120px) {
+  .nav-top-bar {
+    padding: 1rem 1.35rem 0.52rem;
+  }
+
+  .nav-top-bar--scrolled {
+    padding-top: 0.85rem;
+  }
+
+  .nav-menu-container {
+    display: none;
+  }
+
+  .nav-mobile-toggle {
+    display: flex;
+  }
+
+  .nav-actions {
+    margin-left: auto;
+  }
+
+  .nav-mobile-drawer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.1rem;
+    margin-top: 0.9rem;
+    background: rgba(9, 6, 16, 0.96);
+    border: 1px solid rgba(168, 85, 247, 0.28);
+    border-radius: 14px;
+    backdrop-filter: blur(20px);
+  }
+
+  .nav-mobile-item {
+    padding: 0.65rem 0.6rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: #CFCBDB;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .nav-mobile-item:hover,
+  .nav-mobile-item--active {
+    color: #FFFFFF;
+    background: rgba(139, 92, 246, 0.16);
+  }
+}
+
+@media (max-width: 560px) {
+  .nav-title-text {
+    font-size: 0.88rem;
+  }
+
+  .nav-ck-logo svg,
+  .nav-ck-logo img {
+    width: 26px;
+    height: 26px;
+  }
+}

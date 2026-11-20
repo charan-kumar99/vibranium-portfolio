@@ -1,0 +1,607 @@
+/* ============================================================================
+   SKILLS SECTION (SECTION 03) — VIBRANIUM TACTICAL CAPABILITIES
+   Precision implementation matching Image 2 reference design:
+   - Asymmetrical 2-zone grid: Left header & Stat HUD + Right 2x4 capability cards
+   - Signature tactical chamfers and slash /// accents
+   - Full-width bottom Tech Stack dock with brand logos
+   - Seamless #030206 bidirectional fade into Sections 02 & 04
+   ============================================================================ */
+
+.skills-section {
+  position: relative;
+  background-color: #030206;
+  width: 100%;
+  min-height: 100vh;
+  padding: clamp(14rem, 25vh, 19rem) 0 clamp(3.5rem, 6vh, 4.5rem) 0;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) and (min-height: 640px) {
+  .skills-section {
+    min-height: 100vh;
+    padding: 16rem 0 3.5rem 0;
+  }
+}
+
+/* Master Kimoyo Cyber Glitch Matrix Background Layer */
+.skills-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/skills-cyber-panther-bg.jpg');
+  background-size: cover;
+  background-position: center 40px;
+  background-repeat: no-repeat;
+  opacity: 0.84;
+  filter: none;
+  pointer-events: none;
+  z-index: 1;
+  /* Exact user reference gradient curve: black smoothly blending into purple */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 45px,
+    rgba(0, 0, 0, 0.15) 85px,
+    rgba(0, 0, 0, 0.5) 130px,
+    rgba(0, 0, 0, 0.85) 175px,
+    black 220px,
+    black 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 45px,
+    rgba(0, 0, 0, 0.15) 85px,
+    rgba(0, 0, 0, 0.5) 130px,
+    rgba(0, 0, 0, 0.85) 175px,
+    black 220px,
+    black 100%
+  );
+}
+
+/* Atmospheric Layer: Exact black-to-purple gradient, faded out at the bottom */
+.skills-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 280px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    #030206 0%,
+    rgba(6, 5, 8, 0.95) 15%,
+    rgba(12, 8, 19, 0.82) 28%,
+    rgba(24, 8, 37, 0.68) 40%,
+    rgba(47, 10, 68, 0.52) 52%,
+    rgba(71, 12, 105, 0.42) 62%,
+    rgba(103, 12, 150, 0.32) 72%,
+    rgba(129, 11, 178, 0.2) 80%,
+    rgba(129, 11, 178, 0.1) 87%,
+    rgba(129, 11, 178, 0.04) 93%,
+    transparent 100%
+  );
+}
+
+.skills-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
+}
+
+/* ─── 2-ZONE ASYMMETRICAL GRID ───────────────────────────────────────────── */
+.skills-main-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 390px) 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: stretch;
+  margin-bottom: clamp(2rem, 4vh, 2.75rem);
+}
+
+/* ─── LEFT COLUMN: HEADER & STAT HUD ─────────────────────────────────────── */
+.skills-left-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Dual Pill Tag */
+.skills-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.skills-pill-bars {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3.5px;
+  justify-content: center;
+}
+
+.skills-pill-bar {
+  width: 32px;
+  height: 4px;
+  background: #C084FC;
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.75);
+}
+
+.skills-tag-text {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #C084FC;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Main Section Heading */
+.skills-heading {
+  font-family: 'Oxanium', 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(2.4rem, 4.2vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem 0;
+}
+
+.skills-heading-white {
+  color: #FFFFFF;
+}
+
+.skills-heading-gradient {
+  background: linear-gradient(135deg, #C084FC 0%, #D946EF 55%, #E879F9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(192, 132, 252, 0.5));
+}
+
+/* Subtitle */
+.skills-lead {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #94A3B8;
+  max-width: 380px;
+  margin: 0 0 2rem 0;
+}
+
+/* Tactical Stat HUD Widget (Frosted Glassmorphism) */
+.skills-stat-hud {
+  position: relative;
+  background: rgba(8, 4, 18, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 85, 247, 0.32);
+  border-radius: 14px;
+  padding: 1.25rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.45),
+    0 0 16px rgba(168, 85, 247, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  margin-top: auto;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skills-stat-hud:hover {
+  background: rgba(14, 7, 28, 0.6);
+  border-color: rgba(192, 132, 252, 0.55);
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.55),
+    0 0 22px rgba(168, 85, 247, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+}
+
+.skills-stat-hud-corner {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid #C084FC;
+  border-right: 2px solid #C084FC;
+  border-top-right-radius: 12px;
+  pointer-events: none;
+}
+
+.skills-stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.skills-stat-icon-wrap {
+  color: #C084FC;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 6px rgba(192, 132, 252, 0.6));
+}
+
+.skills-code-icon {
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.05em;
+}
+
+.skills-stat-value {
+  font-family: 'Oxanium', 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+}
+
+.skills-stat-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  color: #94A3B8;
+  letter-spacing: 0.04em;
+}
+
+.skills-stat-divider {
+  width: 1px;
+  height: 38px;
+  background: rgba(168, 85, 247, 0.22);
+}
+
+/* ─── RIGHT COLUMN: 8 CAPABILITY INTERACTIVE EXPANDABLE BUTTONS ───────────── */
+.skills-right-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.skills-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.skills-col-track {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Capability Interactive Pill Button (Compact, Translucent - Face stays visible!) */
+.skills-cap-card {
+  position: relative;
+  background: rgba(8, 4, 18, 0.42);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(168, 85, 247, 0.28);
+  border-radius: 12px;
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(168, 85, 247, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.skills-cap-card:hover,
+.skills-cap-card--expanded {
+  border-color: rgba(192, 132, 252, 0.85);
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.75),
+    0 0 25px rgba(168, 85, 247, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  background: rgba(18, 9, 36, 0.9);
+}
+
+/* Signature Tactical Accent */
+.skills-cap-card--accented {
+  border-top-right-radius: 4px;
+}
+
+.skills-card-tactical-accent {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  display: flex;
+  gap: 2.5px;
+  align-items: center;
+}
+
+.tactical-slash {
+  width: 2.2px;
+  height: 9px;
+  background: #C084FC;
+  transform: skewX(-25deg);
+  opacity: 0.8;
+  box-shadow: 0 0 6px rgba(192, 132, 252, 0.6);
+}
+
+.skills-cap-card:hover .tactical-slash,
+.skills-cap-card--expanded .tactical-slash {
+  opacity: 1;
+  background: #67E8F9;
+  box-shadow: 0 0 8px #67E8F9;
+}
+
+/* Icon Box */
+.skills-cap-icon-box {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.32);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C084FC;
+  transition: all 0.25s ease;
+  box-shadow: inset 0 0 8px rgba(168, 85, 247, 0.2);
+}
+
+.skills-cap-card:hover .skills-cap-icon-box,
+.skills-cap-card--expanded .skills-cap-icon-box {
+  background: rgba(139, 92, 246, 0.3);
+  border-color: #67E8F9;
+  color: #FFFFFF;
+  box-shadow: 0 0 16px rgba(103, 232, 249, 0.5);
+}
+
+.skills-cap-icon-box svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Card Info */
+.skills-cap-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.skills-cap-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.skills-cap-title {
+  font-family: 'Oxanium', 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skills-cap-card:hover .skills-cap-title,
+.skills-cap-card--expanded .skills-cap-title {
+  color: #F8FAFC;
+}
+
+/* Expand Arrow */
+.skills-cap-expand-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(192, 132, 252, 0.5);
+  transition: transform 0.25s ease, color 0.25s ease;
+  margin-right: 12px;
+}
+
+.skills-cap-card:hover .skills-cap-expand-arrow,
+.skills-cap-card--expanded .skills-cap-expand-arrow {
+  transform: rotate(180deg);
+  color: #67E8F9;
+}
+
+/* Hidden items that animate open on hover or click */
+.skills-cap-items {
+  font-family: var(--font-mono, 'IBM Plex Mono', monospace);
+  font-size: 0.73rem;
+  font-weight: 500;
+  color: #67E8F9;
+  letter-spacing: 0.03em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: max-height 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease,
+              transform 0.25s ease,
+              margin-top 0.25s ease;
+}
+
+.skills-cap-card:hover .skills-cap-items,
+.skills-cap-card--expanded .skills-cap-items {
+  max-height: 40px;
+  opacity: 1;
+  margin-top: 4px;
+  transform: translateY(0);
+}
+
+/* ─── BOTTOM FULL-WIDTH TECH STACK DOCK (Frosted Glassmorphism) ───────────── */
+.skills-tech-dock {
+  background: rgba(8, 4, 18, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(168, 85, 247, 0.32);
+  border-radius: 16px;
+  padding: 13px 26px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(168, 85, 247, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skills-tech-dock:hover {
+  background: rgba(14, 7, 28, 0.6);
+  border-color: rgba(192, 132, 252, 0.55);
+  box-shadow:
+    0 12px 38px rgba(0, 0, 0, 0.55),
+    0 0 25px rgba(168, 85, 247, 0.22),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12);
+}
+
+.skills-dock-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.skills-dock-star {
+  color: #C084FC;
+  font-size: 1.25rem;
+  filter: drop-shadow(0 0 8px #C084FC);
+}
+
+.skills-dock-title {
+  font-family: 'Oxanium', 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #C084FC;
+  letter-spacing: 0.04em;
+}
+
+.skills-dock-pipe {
+  width: 1px;
+  height: 24px;
+  background: rgba(168, 85, 247, 0.35);
+  margin-left: 8px;
+}
+
+/* Brand Chips in Dock */
+.skills-dock-brands {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  gap: 18px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.skills-dock-brands::-webkit-scrollbar {
+  display: none;
+}
+
+.skills-brand-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  padding: 4px 6px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.skills-brand-chip:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.4));
+}
+
+.skills-brand-name {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  letter-spacing: 0.03em;
+}
+
+/* Specific Brand Badges */
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-badge--dotnet {
+  background: #512BD4;
+  color: #FFFFFF;
+  font-family: 'Oxanium', 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 0.65rem;
+  padding: 3px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 8px rgba(81, 43, 212, 0.5);
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ─────────────────────────────────────────────── */
+@media (max-width: 1120px) {
+  .skills-main-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .skills-left-col {
+    max-width: 600px;
+  }
+
+  .skills-stat-hud {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-heading {
+    font-size: 2.2rem;
+  }
+
+  .skills-tech-dock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  .skills-dock-pipe {
+    display: none;
+  }
+
+  .skills-dock-brands {
+    width: 100%;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+  }
+}

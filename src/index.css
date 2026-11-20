@@ -1,0 +1,559 @@
+/* ============================================================================
+   CHARAN KUMAR — VIBRANIUM DESIGN SYSTEM
+   Wakanda-inspired cinematic interface: obsidian, violet, cyan, silver
+   ============================================================================ */
+
+/* ─── FONTS ─────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Oxanium:wght@400;500;600;700;800&display=swap');
+
+@font-face {
+  font-family: 'Wakanda Forever';
+  src: url('./assets/fonts/wakanda-forever.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Wakanda Panther';
+  src: url('./assets/fonts/wakanda-panther.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Wakanda Bold';
+  src: url('./assets/fonts/wakanda-bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Wakanda Glyph';
+  src: url('./assets/fonts/WakandaForever-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Charan Kumar';
+  src: url('./assets/fonts/charan-kumar.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Haberkern';
+  src: url('./assets/fonts/charan-kumar.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AboutDisplay';
+  src: url('./assets/fonts/about-display.ttf') format('truetype');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/* ─── DESIGN TOKENS ─────────────────────────────────────────────────────── */
+:root {
+  /* Colors — Vibranium palette */
+  --obsidian: #07070B;
+  --deep-black: #030305;
+  --midnight-purple: #171022;
+  --vibranium-violet: #8B5CF6;
+  --electric-violet: #A78BFA;
+  --holographic-cyan: #67E8F9;
+  --vibranium-gold: #D9B56D;
+  --metallic-silver: #D8D8E0;
+  --text-primary: #F5F5F7;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  --surface: #0D0D14;
+  --surface-elevated: #13131D;
+  --surface-hover: #1A1A28;
+  --border-subtle: rgba(139, 92, 246, 0.12);
+  --border-active: rgba(139, 92, 246, 0.35);
+  --glow-violet: rgba(139, 92, 246, 0.25);
+  --glow-cyan: rgba(103, 232, 249, 0.2);
+
+  /* Typography — Perception & Haberkern Wakandan Sci-Fi Design System */
+  --font-superhero: 'Bebas Neue', 'Anton', 'Orbitron', sans-serif;
+  --font-wakanda: 'Wakanda Forever', 'Orbitron', 'Oxanium', 'Michroma', sans-serif;
+  --font-wakanda-panther: 'Wakanda Panther', 'Orbitron', 'Oxanium', sans-serif;
+  --font-charan: 'Charan Kumar', 'Space Grotesk', sans-serif;
+  --font-haberkern: 'Charan Kumar', 'Space Grotesk', sans-serif;
+  --font-display: 'Oxanium', 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --section-pad: clamp(4rem, 10vh, 8rem);
+  --container-max: 1280px;
+  --container-pad: clamp(1rem, 4vw, 2rem);
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 600ms;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Z-index layers */
+  --z-base: 1;
+  --z-elevated: 10;
+  --z-nav: 100;
+  --z-modal: 500;
+  --z-overlay: 900;
+  --z-top: 1000;
+}
+
+/* ─── RESET ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scrollbar-width: thin;
+  scrollbar-color: var(--vibranium-violet) var(--deep-black);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--deep-black);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ─── UNIVERSAL CURSOR HIDING ─────────────────────────────────────────────
+   Ensures the OS/browser default arrow pointer is completely hidden across all
+   elements so ONLY the custom delta stealth cursor is shown. */
+html,
+body,
+*,
+*::before,
+*::after,
+a,
+button,
+input,
+select,
+textarea,
+[role="button"],
+.clickable {
+  cursor: none !important;
+}
+
+::selection {
+  background: var(--vibranium-violet);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--deep-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--vibranium-violet);
+  border-radius: 3px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ─── CONTAINER ─────────────────────────────────────────────────────────── */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+/* ─── SECTION BASE ──────────────────────────────────────────────────────── */
+.section {
+  padding: var(--section-pad) 0;
+  position: relative;
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-identifier {
+  font-family: var(--font-wakanda-panther), var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vibranium-violet);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-identifier::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--vibranium-violet);
+}
+
+.section-title {
+  font-family: var(--font-wakanda-panther), var(--font-wakanda);
+  font-size: clamp(1.4rem, 3.2vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-shadow: 0 0 24px rgba(139, 92, 246, 0.25);
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+/* ─── HABERKERN / PERCEPTION WAKANDAN SCI-FI TYPOGRAPHY ──────────────────── */
+.haberkern-title {
+  font-family: var(--font-wakanda-panther), var(--font-wakanda);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.fui-char {
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.fui-char:hover {
+  transform: translateY(-2px);
+  color: var(--holographic-cyan);
+}
+
+.fui-char.fui-glyph {
+  font-family: 'Orbitron', 'Oxanium', sans-serif;
+  color: var(--holographic-cyan);
+  text-shadow: 0 0 14px var(--holographic-cyan);
+}
+
+.fui-char.fui-glyph-violet {
+  color: var(--electric-violet);
+  text-shadow: 0 0 16px var(--vibranium-glow);
+}
+
+/* ─── AFRICAN-INSPIRED GEOMETRIC PATTERNS ───────────────────────────────── */
+.geo-pattern {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.04;
+}
+
+.geo-pattern--left {
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 400px;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    var(--vibranium-violet) 8px,
+    var(--vibranium-violet) 9px
+  );
+}
+
+.geo-pattern--right {
+  right: -40px;
+  top: 20%;
+  width: 80px;
+  height: 300px;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    var(--holographic-cyan) 12px,
+    var(--holographic-cyan) 13px
+  );
+}
+
+.geo-pattern--diamond {
+  width: 200px;
+  height: 200px;
+  background:
+    linear-gradient(45deg, transparent 48%, var(--vibranium-violet) 48%, var(--vibranium-violet) 52%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, var(--vibranium-violet) 48%, var(--vibranium-violet) 52%, transparent 52%);
+  background-size: 24px 24px;
+}
+
+/* ─── GRID BACKGROUND ───────────────────────────────────────────────────── */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ─── BUTTONS ───────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--vibranium-violet);
+  color: white;
+  border: 1px solid var(--vibranium-violet);
+}
+.btn-primary:hover {
+  background: var(--electric-violet);
+  box-shadow: 0 0 30px var(--glow-violet), 0 0 60px rgba(139, 92, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-active);
+}
+.btn-secondary:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: var(--vibranium-violet);
+  box-shadow: 0 0 20px var(--glow-violet);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+.btn-ghost:hover {
+  color: var(--vibranium-violet);
+}
+
+/* ─── CARDS ─────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--vibranium-violet), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-normal);
+}
+
+.card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--glow-violet);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ─── TAGS ──────────────────────────────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--electric-violet);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.tag--cyan {
+  background: rgba(103, 232, 249, 0.1);
+  color: var(--holographic-cyan);
+  border-color: rgba(103, 232, 249, 0.15);
+}
+
+/* ─── FOCUS STYLES ──────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--vibranium-violet);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── REDUCED MOTION ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  :root {
+    --section-pad: clamp(3rem, 8vh, 6rem);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-pad: clamp(2.5rem, 6vh, 4rem);
+  }
+  .section-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+}
+
+/* ─── SEPARATOR LINE ────────────────────────────────────────────────────── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(217, 181, 109, 0.18) 18%, var(--vibranium-violet) 50%, rgba(217, 181, 109, 0.18) 82%, transparent 100%);
+  opacity: 0.68;
+}
+
+/* ─── SHIMMER EFFECT ────────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.08) 20%,
+    rgba(139, 92, 246, 0.15) 50%,
+    rgba(139, 92, 246, 0.08) 80%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ─── PULSE GLOW ────────────────────────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ─── TYPING CURSOR ─────────────────────────────────────────────────────── */
+@keyframes blink-cursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ─── STATUS INDICATORS ─────────────────────────────────────────────────── */
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ─── HORIZONTAL SCROLL PREVENTION ──────────────────────────────────────── */
+#root {
+  overflow-x: hidden;
+  position: relative;
+}
+
+
+@media (max-width: 768px) {
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .experience-section,
+  .education-section,
+  .contact-section {
+    background-attachment: scroll !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

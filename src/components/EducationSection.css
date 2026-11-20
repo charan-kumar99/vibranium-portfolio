@@ -1,0 +1,175 @@
+/* ============================================================================
+   EDUCATION & HONORS SECTION STYLES
+   Wakandan credentials grid, degree badges, and leadership matrix
+   ============================================================================ */
+
+.education-section {
+  position: relative;
+  background: linear-gradient(180deg, rgba(3, 3, 5, 0.93), rgba(3, 3, 5, 0.76) 50%, rgba(3, 3, 5, 0.95)), url('../../bp/SaveClip.App_784616597_17904710325542850_1512333158239716934_n.jpg') center 28% / cover fixed;
+}
+
+.subsection-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  color: var(--vibranium-violet);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.sub-icon {
+  font-size: 1.1rem;
+}
+
+.edu-cert-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.edu-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.edu-card {
+  padding: 1.75rem;
+  background: rgba(13, 13, 20, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+.edu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.edu-period {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--holographic-cyan);
+  font-weight: 600;
+}
+
+.edu-loc {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.edu-degree {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.edu-inst {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Certifications */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.cert-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.1rem 1.25rem;
+  background: rgba(13, 13, 20, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast);
+}
+
+.cert-card:hover {
+  border-color: var(--vibranium-violet);
+  background: rgba(139, 92, 246, 0.08);
+  transform: translateY(-2px);
+}
+
+.cert-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--vibranium-violet);
+  box-shadow: 0 0 8px var(--vibranium-violet);
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+}
+
+.cert-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.cert-area {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Interests / Leadership Matrix */
+.interests-wrapper {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.interest-pill {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(13, 13, 20, 0.6);
+}
+
+.interest-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.interest-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.interest-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.interest-detail {
+  font-size: 0.8rem;
+  color: var(--holographic-cyan);
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 900px) {
+  .edu-cert-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

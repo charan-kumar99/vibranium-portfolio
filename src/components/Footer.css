@@ -1,0 +1,36 @@
+/* ============================================================================
+   MINIMAL FOOTER
+   ============================================================================ */
+
+.minimal-footer {
+  width: 100%;
+  padding: 2.5rem 1.5rem;
+  background: #030305;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.minimal-footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.minimal-footer-copy {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: #64748B;
+  letter-spacing: 0.08em;
+}
+
+.minimal-footer-role {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #94A3B8;
+  letter-spacing: 0.12em;
+}

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skills Concepts Preview</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+  <style>
+    @font-face {
+      font-family: 'AboutDisplay';
+      src: url('/about-display.ttf') format('truetype');
+      font-weight: 400 900;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #030206;
+      color: #FFFFFF;
+      font-family: 'Space Grotesk', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .concept-viewport {
+      position: relative;
+      width: 1536px;
+      min-height: 900px;
+      margin: 0 auto 60px;
+      background: #030206;
+      overflow: hidden;
+      border: 2px solid #2e1065;
+    }
+
+    .concept-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('/glitch-bg.jpg');
+      background-size: cover;
+      background-position: center 25%;
+      opacity: 0.32;
+      pointer-events: none;
+      z-index: 1;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    }
+
+    .concept-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      background:
+        radial-gradient(circle at 50% 30%, transparent 40%, rgba(3, 2, 6, 0.85) 90%),
+        linear-gradient(to bottom, #030206 0%, transparent 20%, transparent 80%, #030206 100%);
+    }
+
+    .concept-inner {
+      position: relative;
+      z-index: 10;
+      padding: 3rem 4rem;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* Common Header */
+    .c-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(168, 85, 247, 0.25);
+      padding-bottom: 1rem;
+    }
+    .c-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.85rem;
+      border-radius: 9999px;
+      background: rgba(147, 51, 234, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: #C084FC;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.6rem;
+    }
+    .c-title {
+      font-family: 'AboutDisplay', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 0.05em;
+      color: #FFFFFF;
+      line-height: 1.1;
+    }
+    .c-title-purple {
+      background: linear-gradient(135deg, #C084FC 0%, #A855F7 60%, #EC4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .c-status {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: #67E8F9;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .c-pip {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #67E8F9;
+      box-shadow: 0 0 8px #67E8F9;
+    }
+
+    /* =========================================================================
+       CONCEPT 1: MODULAR TACTICAL BENTO ARSENAL
+       ========================================================================= */
+    .c1-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1.25rem;
+    }
+
+    .c1-card {
+      position: relative;
+      background: rgba(10, 6, 20, 0.75);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      border-radius: 8px;
+      padding: 1.4rem;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      clip-path: polygon(0 14px, 14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+    }
+
+    .c1-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 14px; height: 14px;
+      border-top: 2px solid #C084FC;
+      border-left: 2px solid #C084FC;
+      pointer-events: none;
+    }
+
+    .c1-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 0; width: 14px; height: 14px;
+      border-bottom: 2px solid #C084FC;
+      border-right: 2px solid #C084FC;
+      pointer-events: none;
+    }
+
+    .c1-hero-card {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 2rem;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(20, 10, 36, 0.85) 0%, rgba(10, 6, 20, 0.8) 100%);
+      border-color: rgba(168, 85, 247, 0.55);
+      box-shadow: 0 0 24px rgba(168, 85, 247, 0.2);
+    }
+
+    .c1-hero-left {
+      border-right: 1px solid rgba(168, 85, 247, 0.3);
+      padding-right: 1.5rem;
+    }
+
+    .c1-hero-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      color: #67E8F9;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.4rem;
+    }
+
+    .c1-hero-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+    }
+
+    .c1-hero-desc {
+      font-size: 0.82rem;
+      color: #94A3B8;
+      line-height: 1.45;
+    }
+
+    .c1-hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .c1-hero-chip {
+      background: rgba(147, 51, 234, 0.18);
+      border: 1px solid rgba(192, 132, 252, 0.45);
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      color: #F3E8FF;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .c1-hero-chip-stat {
+      color: #67E8F9;
+      font-weight: bold;
+    }
+
+    .c1-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .c1-card-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .c1-card-count {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: #C084FC;
+      background: rgba(168, 85, 247, 0.15);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .c1-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .c1-chip {
+      background: rgba(15, 10, 28, 0.6);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.76rem;
+      color: #E2E8F0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+
+    .c1-chip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #A855F7;
+    }
+
+    /* =========================================================================
+       CONCEPT 2: KIMOYO HOLOGRAPHIC DUAL-FLANK COCKPIT
+       ========================================================================= */
+    .c2-layout {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .c2-cockpit {
+      background: rgba(10, 6, 22, 0.85);
+      border: 1px solid rgba(103, 232, 249, 0.4);
+      border-radius: 12px;
+      padding: 1.8rem;
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+    }
+
+    .c2-radar {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(103, 232, 249, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 20px rgba(6, 182, 212, 0.2);
+    }
+
+    .c2-radar-inner {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(168, 85, 247, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .c2-radar-val {
+      font-family: 'AboutDisplay', sans-serif;
+      font-size: 1.5rem;
+      color: #67E8F9;
+    }
+
+    .c2-radar-lbl {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.55rem;
+      color: #C084FC;
+      letter-spacing: 0.12em;
+    }
+
+    .c2-metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+    }
+
+    .c2-metric-lbl { color: #94A3B8; }
+    .c2-metric-val { color: #FFFFFF; font-weight: 600; }
+
+    .c2-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .c2-cat-panel {
+      background: rgba(14, 8, 28, 0.7);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-left: 4px solid #C084FC;
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .c2-cat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+    }
+
+    .c2-cat-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .c2-cat-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      color: #67E8F9;
+    }
+
+    .c2-pill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 0.6rem;
+    }
+
+    .c2-pill {
+      background: rgba(22, 12, 44, 0.6);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      border-radius: 6px;
+      padding: 0.5rem 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.76rem;
+    }
+
+    .c2-pill-name { color: #F1F5F9; font-weight: 500; }
+    .c2-pill-pip {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #A855F7;
+    }
+
+    /* =========================================================================
+       CONCEPT 3: CLASSIFIED TACTICAL WEAPON TIERS
+       ========================================================================= */
+    .c3-tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .c3-tier {
+      position: relative;
+      background: rgba(8, 5, 18, 0.8);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 240px 1fr 180px;
+      gap: 2rem;
+      align-items: center;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .c3-tier::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #A855F7, #67E8F9);
+      border-radius: 8px 0 0 8px;
+    }
+
+    .c3-tier-code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: #A855F7;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.3rem;
+    }
+
+    .c3-tier-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.3rem;
+    }
+
+    .c3-tier-sub {
+      font-size: 0.75rem;
+      color: #94A3B8;
+    }
+
+    .c3-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .c3-badge {
+      background: rgba(147, 51, 234, 0.14);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      padding: 0.45rem 0.85rem;
+      border-radius: 4px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #F8FAFC;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .c3-badge-icon {
+      color: #67E8F9;
+      font-size: 0.7rem;
+    }
+
+    .c3-status-box {
+      text-align: right;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .c3-status-val {
+      font-size: 0.75rem;
+      color: #67E8F9;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3rem;
+    }
+
+    .c3-status-bar {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .c3-status-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #A855F7, #67E8F9);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background: #030206;">
+<div class="concept-viewport" id="c2">
+    <div class="concept-bg"></div>
+    <div class="concept-vignette"></div>
+    <div class="concept-inner">
+      <div class="c-header">
+        <div>
+          <div class="c-badge">● 03 // ARSENAL</div>
+          <h2 class="c-title">KIMOYO <span class="c-title-purple">HOLOGRAPHIC COCKPIT</span></h2>
+        </div>
+        <div class="c-status">
+          <span class="c-pip"></span>
+          <span>CONCEPT 2: COCKPIT &amp; NEURAL PODS</span>
+        </div>
+      </div>
+
+      <div class="c2-layout">
+        <!-- Left Holographic Telemetry Cockpit -->
+        <div class="c2-cockpit">
+          <div class="c2-radar">
+            <div class="c2-radar-inner">
+              <span class="c2-radar-val">38</span>
+              <span class="c2-radar-lbl">ACTIVE NODES</span>
+            </div>
+          </div>
+          <div class="c2-metric-row">
+            <span class="c2-metric-lbl">CORE ENGINE</span>
+            <span class="c2-metric-val">.NET 8 / C#</span>
+          </div>
+          <div class="c2-metric-row">
+            <span class="c2-metric-lbl">ARCHITECTURE</span>
+            <span class="c2-metric-val">Clean Architecture</span>
+          </div>
+          <div class="c2-metric-row">
+            <span class="c2-metric-lbl">API PROTOCOL</span>
+            <span class="c2-metric-val">REST / Swagger / EF</span>
+          </div>
+          <div class="c2-metric-row">
+            <span class="c2-metric-lbl">CONTAINERIZATION</span>
+            <span class="c2-metric-val">Docker Swarm / Azure</span>
+          </div>
+          <div class="c2-metric-row">
+            <span class="c2-metric-lbl">SYSTEM STATUS</span>
+            <span class="c2-metric-val" style="color: #67E8F9;">100% OPERATIONAL</span>
+          </div>
+        </div>
+
+        <!-- Right Category Hologram Pods -->
+        <div class="c2-categories">
+          <!-- Backend & APIs -->
+          <div class="c2-cat-panel">
+            <div class="c2-cat-header">
+              <span class="c2-cat-title">⚡ BACKEND &amp; DISTRIBUTED APIS</span>
+              <span class="c2-cat-tag">[01 // CORE WEAPONRY]</span>
+            </div>
+            <div class="c2-pill-grid">
+              <div class="c2-pill"><span class="c2-pill-name">C#</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">ASP.NET Core</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">Clean Architecture</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">REST APIs</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">Microservices</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">Entity Framework</span><span class="c2-pill-pip"></span></div>
+            </div>
+          </div>
+
+          <!-- Web & Mobile -->
+          <div class="c2-cat-panel">
+            <div class="c2-cat-header">
+              <span class="c2-cat-title">📱 FRONTEND &amp; MOBILE EXPERIENCES</span>
+              <span class="c2-cat-tag">[02 // CLIENT SURFACES]</span>
+            </div>
+            <div class="c2-pill-grid">
+              <div class="c2-pill"><span class="c2-pill-name">React</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">Flutter</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">Blazor</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">JavaScript</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">HTML5 / CSS3</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">Bootstrap 5</span><span class="c2-pill-pip"></span></div>
+            </div>
+          </div>
+
+          <!-- Data & DevOps -->
+          <div class="c2-cat-panel">
+            <div class="c2-cat-header">
+              <span class="c2-cat-title">🗄 DATABASES, CLOUD &amp; DEVOPS</span>
+              <span class="c2-cat-tag">[03 // PIPELINES]</span>
+            </div>
+            <div class="c2-pill-grid">
+              <div class="c2-pill"><span class="c2-pill-name">PostgreSQL</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">SQL Server</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">Docker</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">Azure DevOps</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">Redis</span><span class="c2-pill-pip"></span></div>
+              <div class="c2-pill"><span class="c2-pill-name">CI/CD</span><span class="c2-pill-pip"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       CONCEPT 3
+       ======================================================================= -->
+</body>
+</html>

@@ -1,0 +1,45 @@
+/* ─── WAKANDAN BOOT DECODE ───────────────────────────────────────────────── */
+
+/* Characters that have not locked in yet are drawn in the Wakandan script
+   face — the real letters, just not translated yet. The face's advance widths
+   track the Latin ones, so a waiting line keeps its final footprint and holds
+   still instead of shuffling. */
+.wakanda-glyph {
+  font-family: var(--font-wakanda);
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+/* Locked: the same element swaps to the host's own face (a real font change,
+   not a fade). The short dim + blur as the glyph resolves keeps the swap from
+   popping, and clears itself so no filter is left behind. */
+.wakanda-char {
+  font-family: inherit;
+  animation: wakanda-char-lock 210ms ease-out;
+}
+
+/* Keep the host's own letter-spacing / gradient text intact while decoding. */
+[data-decoding] {
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes wakanda-char-lock {
+  0% {
+    opacity: 0.45;
+    filter: blur(1.1px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0.3px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wakanda-char {
+    animation: none;
+  }
+}
