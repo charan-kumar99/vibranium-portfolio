@@ -8,7 +8,7 @@
   height: 100vh;
   min-height: 100vh;
   max-height: 100vh;
-  padding-top: clamp(1.4rem, 3vh, 2.2rem);
+  padding-top: clamp(4.5rem, 8.5vh, 6.5rem);
   padding-bottom: clamp(0.5rem, 1.2vh, 0.8rem);
   padding-left: clamp(1.2rem, 2.5vw, 3rem);
   padding-right: clamp(1.2rem, 2.5vw, 3rem);
@@ -29,28 +29,31 @@
   height: 100%;
   background-image: url('../assets/projects-neon-city-perch.jpg');
   background-size: cover;
-  background-position: left bottom;
+  background-position: left calc(100% + 90px);
   background-repeat: no-repeat;
-  opacity: 0.95;
+  opacity: 1;
+  filter: contrast(1.06) brightness(1.1) saturate(1.18);
   pointer-events: none;
   z-index: 1;
-  /* Smooth top mask so background image fades in seamlessly from the top border */
+  /* Smooth top mask so background image fades in seamlessly well below the boundary */
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0px,
-    rgba(0, 0, 0, 0.15) 80px,
-    rgba(0, 0, 0, 0.5) 160px,
-    rgba(0, 0, 0, 0.85) 260px,
-    black 340px,
+    transparent 40px,
+    rgba(0, 0, 0, 0.1) 100px,
+    rgba(0, 0, 0, 0.4) 170px,
+    rgba(0, 0, 0, 0.8) 240px,
+    black 320px,
     black 100%
   );
   mask-image: linear-gradient(
     to bottom,
     transparent 0px,
-    rgba(0, 0, 0, 0.15) 80px,
-    rgba(0, 0, 0, 0.5) 160px,
-    rgba(0, 0, 0, 0.85) 260px,
-    black 340px,
+    transparent 40px,
+    rgba(0, 0, 0, 0.1) 100px,
+    rgba(0, 0, 0, 0.4) 170px,
+    rgba(0, 0, 0, 0.8) 240px,
+    black 320px,
     black 100%
   );
 }
@@ -64,32 +67,32 @@
   }
 }
 
-/* Atmospheric Top Fade-in: Wide ~3cm+ blend bridging Blueish-Purple into Obsidian Black */
+/* Atmospheric Top Fade-in: Matches the deep Skills artwork violet-indigo and smoothly walks into cool slate gray */
 .featured-projects-top-fade {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: clamp(340px, 42vh, 440px);
+  height: clamp(320px, 40vh, 420px);
   pointer-events: none;
   z-index: 3;
   background:
     radial-gradient(
-      ellipse 85% 65% at 50% 0%,
-      rgba(59, 130, 246, 0.38) 0%,
-      rgba(79, 70, 229, 0.3) 35%,
-      transparent 75%
+      ellipse 100% 60% at 50% 0%,
+      rgba(60, 26, 140, 0.12) 0%,
+      rgba(40, 16, 95, 0.06) 50%,
+      transparent 85%
     ),
     linear-gradient(
       to bottom,
-      rgba(79, 70, 229, 0.62) 0%,
-      rgba(99, 80, 240, 0.52) 10%,
-      rgba(124, 58, 237, 0.45) 22%,
-      rgba(109, 40, 217, 0.4) 35%,
-      rgba(76, 29, 149, 0.5) 48%,
-      rgba(30, 10, 58, 0.72) 64%,
-      rgba(14, 5, 28, 0.88) 78%,
-      rgba(3, 2, 6, 0.98) 90%,
+      rgba(44, 18, 98, 0.16) 0%,
+      rgba(40, 18, 88, 0.14) 10%,
+      rgba(34, 19, 76, 0.11) 22%,
+      rgba(28, 20, 64, 0.09) 35%,
+      rgba(22, 21, 52, 0.07) 48%,
+      rgba(18, 20, 42, 0.05) 62%,
+      rgba(15, 18, 32, 0.03) 76%,
+      rgba(10, 14, 24, 0.01) 88%,
       transparent 100%
     );
 }
@@ -104,14 +107,11 @@
   z-index: 2;
   background: linear-gradient(
     to bottom,
-    #030206 0%,
-    rgba(15, 6, 32, 0.65) 6%,
-    rgba(8, 4, 18, 0.75) 12%,
-    rgba(3, 2, 6, 0.5) 22%,
-    transparent 42%,
-    transparent 84%,
-    rgba(3, 2, 6, 0.25) 94%,
-    rgba(3, 2, 6, 0.6) 100%
+    transparent 0%,
+    transparent 28%,
+    rgba(8, 4, 18, 0.22) 42%,
+    transparent 62%,
+    transparent 100%
   );
 }
 
@@ -282,9 +282,9 @@
 /* Individual Card (Tactical Chamfer Glassmorphism) */
 .fp-project-card {
   position: relative;
-  background: linear-gradient(135deg, rgba(22, 10, 44, 0.6) 0%, rgba(10, 5, 24, 0.42) 100%);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: linear-gradient(135deg, rgba(20, 8, 42, 0.52) 0%, rgba(10, 4, 22, 0.35) 100%);
+  backdrop-filter: blur(14px) saturate(190%);
+  -webkit-backdrop-filter: blur(14px) saturate(190%);
   border: 1px solid rgba(168, 85, 247, 0.38);
   border-top: 1px solid rgba(255, 255, 255, 0.32);
   border-left: 1px solid rgba(192, 132, 252, 0.35);
@@ -308,7 +308,7 @@
     0 14px 35px rgba(0, 0, 0, 0.7),
     0 0 25px rgba(168, 85, 247, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  background: linear-gradient(135deg, rgba(30, 12, 58, 0.7) 0%, rgba(14, 6, 32, 0.5) 100%);
+  background: linear-gradient(135deg, rgba(28, 10, 54, 0.65) 0%, rgba(12, 5, 28, 0.45) 100%);
 }
 
 /* Card Top: Number + Date */
