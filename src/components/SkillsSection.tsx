@@ -214,6 +214,7 @@ export default function SkillsSection() {
       {/* Master Kimoyo Cyber Glitch Matrix Background Layer */}
       <div className="skills-bg" aria-hidden="true" />
       <div className="skills-vignette" aria-hidden="true" />
+      <div className="skills-bottom-fade" aria-hidden="true" />
       <div className="geo-pattern geo-pattern--right" aria-hidden="true" />
 
       <div className="container skills-container">

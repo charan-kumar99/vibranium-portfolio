@@ -181,9 +181,16 @@ export default function ProjectsSection() {
     <section id="projects" className="featured-projects-section" aria-label="Featured Projects Showcase">
       {/* Background with Black Panther perched on the left overlooking neon city */}
       <div className="featured-projects-bg" aria-hidden="true" />
+      <div className="featured-projects-top-fade" aria-hidden="true" />
       <div className="featured-projects-vignette" aria-hidden="true" />
 
-      <div className="featured-projects-container">
+      <motion.div
+        className="featured-projects-container"
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      >
         {/* Top Header Row */}
         <div className="fp-header-row">
           <div className="fp-header-left">
@@ -331,7 +338,7 @@ export default function ProjectsSection() {
             <span className="motto-slash">//</span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

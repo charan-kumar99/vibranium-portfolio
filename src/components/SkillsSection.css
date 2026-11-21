@@ -12,7 +12,7 @@
   background-color: #030206;
   width: 100%;
   min-height: 100vh;
-  padding: clamp(14rem, 25vh, 19rem) 0 clamp(3.5rem, 6vh, 4.5rem) 0;
+  padding: clamp(13rem, 22vh, 17rem) 0 clamp(4.5rem, 8vh, 6.5rem) 0;
   overflow: visible;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@
 @media (min-width: 1024px) and (min-height: 640px) {
   .skills-section {
     min-height: 100vh;
-    padding: 16rem 0 3.5rem 0;
+    padding: 14.5rem 0 5.5rem 0;
   }
 }
 
@@ -35,13 +35,13 @@
   height: 100%;
   background-image: url('../assets/skills-cyber-panther-bg.jpg');
   background-size: cover;
-  background-position: center 40px;
+  background-position: center center;
   background-repeat: no-repeat;
   opacity: 0.84;
   filter: none;
   pointer-events: none;
   z-index: 1;
-  /* Exact user reference gradient curve: black smoothly blending into purple */
+  /* Exact bidirectional gradient curve: seamless fade from black at top and into blueish-purple at bottom */
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0px,
@@ -50,7 +50,11 @@
     rgba(0, 0, 0, 0.5) 130px,
     rgba(0, 0, 0, 0.85) 175px,
     black 220px,
-    black 100%
+    black calc(100% - 240px),
+    rgba(0, 0, 0, 0.85) calc(100% - 170px),
+    rgba(0, 0, 0, 0.5) calc(100% - 110px),
+    rgba(0, 0, 0, 0.15) calc(100% - 40px),
+    transparent 100%
   );
   mask-image: linear-gradient(
     to bottom,
@@ -60,11 +64,15 @@
     rgba(0, 0, 0, 0.5) 130px,
     rgba(0, 0, 0, 0.85) 175px,
     black 220px,
-    black 100%
+    black calc(100% - 240px),
+    rgba(0, 0, 0, 0.85) calc(100% - 170px),
+    rgba(0, 0, 0, 0.5) calc(100% - 110px),
+    rgba(0, 0, 0, 0.15) calc(100% - 40px),
+    transparent 100%
   );
 }
 
-/* Atmospheric Layer: Exact black-to-purple gradient, faded out at the bottom */
+/* Atmospheric Layer: Exact black-to-purple gradient, faded out at the bottom of header zone */
 .skills-vignette {
   position: absolute;
   top: 0;
@@ -87,6 +95,34 @@
     rgba(129, 11, 178, 0.04) 93%,
     transparent 100%
   );
+}
+
+/* Atmospheric Bottom Fade-out: Wide ~3cm+ blend bridging into Blueish-Purple to seamlessly meet Projects Section */
+.skills-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: clamp(260px, 34vh, 380px);
+  pointer-events: none;
+  z-index: 2;
+  background:
+    radial-gradient(
+      ellipse 85% 65% at 50% 100%,
+      rgba(59, 130, 246, 0.38) 0%,
+      rgba(79, 70, 229, 0.3) 35%,
+      transparent 75%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(14, 5, 28, 0.15) 20%,
+      rgba(76, 29, 149, 0.3) 40%,
+      rgba(109, 40, 217, 0.42) 60%,
+      rgba(124, 58, 237, 0.52) 75%,
+      rgba(99, 80, 240, 0.58) 88%,
+      rgba(79, 70, 229, 0.62) 100%
+    );
 }
 
 .skills-container {
