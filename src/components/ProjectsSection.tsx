@@ -182,6 +182,7 @@ export default function ProjectsSection() {
       {/* Background with Black Panther perched on the left overlooking neon city */}
       <div className="featured-projects-bg" aria-hidden="true" />
       <div className="featured-projects-top-fade" aria-hidden="true" />
+      <div className="featured-projects-bottom-fade" aria-hidden="true" />
       <div className="featured-projects-vignette" aria-hidden="true" />
 
       <motion.div

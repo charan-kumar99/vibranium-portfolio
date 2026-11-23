@@ -5,14 +5,13 @@
 
 .featured-projects-section {
   position: relative;
-  height: 100vh;
-  min-height: 100vh;
-  max-height: 100vh;
-  padding-top: clamp(4.5rem, 8.5vh, 6.5rem);
-  padding-bottom: clamp(0.5rem, 1.2vh, 0.8rem);
+  height: clamp(900px, 120vh, 1300px);
+  min-height: clamp(900px, 120vh, 1300px);
+  padding-top: clamp(4.5rem, 8vh, 6.5rem);
+  padding-bottom: clamp(1rem, 2vh, 1.8rem);
   padding-left: clamp(1.2rem, 2.5vw, 3rem);
   padding-right: clamp(1.2rem, 2.5vw, 3rem);
-  background-color: #030206;
+  background: linear-gradient(to bottom, #030206 0%, #030206 70%, #140b18 100%);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -24,37 +23,43 @@
 .featured-projects-bg {
   position: absolute;
   top: 0;
-  left: -140px;
-  width: calc(100% + 200px);
+  left: -120px;
+  width: calc(100% + 180px);
   height: 100%;
   background-image: url('../assets/projects-neon-city-perch.jpg');
   background-size: cover;
-  background-position: left calc(100% + 90px);
+  background-position: left bottom;
   background-repeat: no-repeat;
   opacity: 1;
   filter: contrast(1.06) brightness(1.1) saturate(1.18);
   pointer-events: none;
   z-index: 1;
-  /* Smooth top mask so background image fades in seamlessly well below the boundary */
+  /* Deep, seamless top fade that reaches 100% solid opacity above the panther ears (Y ~ 210px) */
   -webkit-mask-image: linear-gradient(
     to bottom,
     transparent 0px,
-    transparent 40px,
-    rgba(0, 0, 0, 0.1) 100px,
-    rgba(0, 0, 0, 0.4) 170px,
-    rgba(0, 0, 0, 0.8) 240px,
-    black 320px,
-    black 100%
+    transparent 20px,
+    rgba(0, 0, 0, 0.1) 60px,
+    rgba(0, 0, 0, 0.3) 100px,
+    rgba(0, 0, 0, 0.6) 140px,
+    rgba(0, 0, 0, 0.88) 180px,
+    black 210px,
+    black calc(100% - 50px),
+    rgba(0, 0, 0, 0.75) calc(100% - 25px),
+    transparent 100%
   );
   mask-image: linear-gradient(
     to bottom,
     transparent 0px,
-    transparent 40px,
-    rgba(0, 0, 0, 0.1) 100px,
-    rgba(0, 0, 0, 0.4) 170px,
-    rgba(0, 0, 0, 0.8) 240px,
-    black 320px,
-    black 100%
+    transparent 20px,
+    rgba(0, 0, 0, 0.1) 60px,
+    rgba(0, 0, 0, 0.3) 100px,
+    rgba(0, 0, 0, 0.6) 140px,
+    rgba(0, 0, 0, 0.88) 180px,
+    black 210px,
+    black calc(100% - 50px),
+    rgba(0, 0, 0, 0.75) calc(100% - 25px),
+    transparent 100%
   );
 }
 
@@ -67,32 +72,28 @@
   }
 }
 
-/* Atmospheric Top Fade-in: Matches the deep Skills artwork violet-indigo and smoothly walks into cool slate gray */
+/* Atmospheric Top Fade-in: Wide ~200px cinematic blend bridging Skills violet-indigo into Projects */
 .featured-projects-top-fade {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: clamp(320px, 40vh, 420px);
+  height: clamp(180px, 20vh, 215px);
   pointer-events: none;
   z-index: 3;
   background:
     radial-gradient(
       ellipse 100% 60% at 50% 0%,
-      rgba(60, 26, 140, 0.12) 0%,
-      rgba(40, 16, 95, 0.06) 50%,
+      rgba(60, 26, 140, 0.16) 0%,
+      rgba(40, 16, 95, 0.08) 50%,
       transparent 85%
     ),
     linear-gradient(
       to bottom,
-      rgba(44, 18, 98, 0.16) 0%,
-      rgba(40, 18, 88, 0.14) 10%,
-      rgba(34, 19, 76, 0.11) 22%,
-      rgba(28, 20, 64, 0.09) 35%,
-      rgba(22, 21, 52, 0.07) 48%,
-      rgba(18, 20, 42, 0.05) 62%,
-      rgba(15, 18, 32, 0.03) 76%,
-      rgba(10, 14, 24, 0.01) 88%,
+      #030206 0%,
+      rgba(3, 2, 6, 0.88) 25%,
+      rgba(26, 10, 52, 0.4) 55%,
+      rgba(15, 6, 30, 0.15) 80%,
       transparent 100%
     );
 }
@@ -112,6 +113,23 @@
     rgba(8, 4, 18, 0.22) 42%,
     transparent 62%,
     transparent 100%
+  );
+}
+
+/* Atmospheric Bottom Fade-out: Seamless transition into Experience section (#140b18) */
+.featured-projects-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: clamp(50px, 7vh, 80px);
+  pointer-events: none;
+  z-index: 3;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(14, 7, 24, 0.45) 50%,
+    #140b18 100%
   );
 }
 
@@ -479,9 +497,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: clamp(0.25rem, 0.5vh, 0.45rem);
-  padding-top: clamp(0.25rem, 0.5vh, 0.4rem);
-  border-top: 1px solid rgba(168, 85, 247, 0.15);
+  margin-top: clamp(0.5rem, 1vh, 1rem);
+  margin-bottom: clamp(2.5rem, 4.5vh, 4rem);
+  padding-top: clamp(0.35rem, 0.6vh, 0.55rem);
+  border-top: 1px solid rgba(168, 85, 247, 0.2);
   flex-shrink: 0;
 }
 

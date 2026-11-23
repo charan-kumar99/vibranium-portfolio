@@ -303,32 +303,19 @@ export const experience: Experience[] = [
   },
   {
     company: 'NTSIPL',
-    role: '.NET Developer',
-    period: 'Dec 2025 – Jun 2026',
+    role: 'Trainee Engineer- DotNet',
+    period: 'Sep 2025 – Jun 2026',
     location: 'India',
-    description: 'Developed critical RTGS/NEFT payment processing systems using Microservices Architecture.',
+    description: 'Developed critical RTGS/NEFT payment processing systems using Microservices Architecture, serving multiple banks and enterprise vendors.',
     responsibilities: [
-      'Built RTGS/NEFT payment processing microservices',
-      'Developed services serving multiple banks and vendors',
-      'Implemented Microservices Architecture patterns',
-      'Worked with SQL Server and Entity Framework Core',
-      'Collaborated in Agile/Scrum environment using Azure DevOps',
+      'Built and maintained RTGS/NEFT payment processing microservices with ASP.NET Core and C#',
+      'Developed and integrated services serving multiple partner banks and enterprise vendors',
+      'Implemented Microservices Architecture patterns, Clean Architecture, and RESTful APIs',
+      'Managed relational database persistence with SQL Server and Entity Framework Core',
+      'Collaborated in an Agile/Scrum environment with CI/CD delivery using Azure DevOps',
+      'Adhered to enterprise development standards, secure coding practices, and code reviews',
     ],
     technologies: ['ASP.NET Core', 'C#', 'SQL Server', 'Microservices', 'Entity Framework Core', 'Azure DevOps'],
-  },
-  {
-    company: 'NTSIPL',
-    role: 'Trainee Developer',
-    period: 'Sep 2025 – Dec 2025',
-    location: 'India',
-    description: 'Training period focused on .NET development fundamentals and enterprise software practices.',
-    responsibilities: [
-      'Trained in ASP.NET Core and C# development',
-      'Learned enterprise development practices and coding standards',
-      'Worked with SQL Server databases',
-      'Participated in code reviews and team meetings',
-    ],
-    technologies: ['ASP.NET Core', 'C#', 'SQL Server'],
   },
 ];
 
@@ -510,13 +497,9 @@ Type a project name for details.`,
   Docker, PostgreSQL, Razorpay integration
 
 ▸ NTSIPL
-  .NET Developer │ Dec 2025 – Jun 2026
+  Trainee Engineer- DotNet │ Sep 2025 – Jun 2026
   RTGS/NEFT banking microservices, SQL Server,
-  Azure DevOps CI/CD
-
-▸ NTSIPL
-  Trainee Developer │ Sep – Dec 2025
-  .NET fundamentals, enterprise practices`,
+  Entity Framework Core, Azure DevOps CI/CD`,
 
   education: `──── ACADEMIC BACKGROUND ──────────────────────
 
